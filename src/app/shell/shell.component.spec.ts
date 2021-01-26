@@ -10,6 +10,7 @@ import { CoreModule } from '@core';
 import { I18nModule } from '@app/i18n';
 import { ShellComponent } from './shell.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from '@app/shell/footer/header.component';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -27,7 +28,7 @@ describe('ShellComponent', () => {
           MaterialModule,
           CoreModule,
         ],
-        declarations: [HeaderComponent, ShellComponent],
+        declarations: [HeaderComponent, ShellComponent, FooterComponent],
       }).compileComponents();
     })
   );

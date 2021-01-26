@@ -6,6 +6,7 @@ import { Logger } from '@core/logger.service';
 import csCZ from '../../translations/cs-CZ.json';
 import enUS from '../../translations/en-US.json';
 import { LanguageModel } from '@app/i18n/language.model';
+import * as _ from 'lodash';
 
 const log = new Logger('I18nService');
 const languageKey = 'language';
@@ -64,8 +65,11 @@ export class I18nService {
     // If no exact match is found, search without the region
     if (language && !isSupportedLanguage) {
       language = language.split('-')[0];
-      language =
-        this.supportedLanguages.find((supportedLanguage) => supportedLanguage.code.startsWith(language)).code || '';
+      language = _.get(
+        this.supportedLanguages.find((supportedLanguage) => supportedLanguage.code.startsWith(language)),
+        '.code',
+        ''
+      );
       isSupportedLanguage = Boolean(language);
     }
 
