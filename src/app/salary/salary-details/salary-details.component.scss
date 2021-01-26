@@ -1,0 +1,36 @@
+@import "src/theme/theme-variables";
+
+table {
+  width: 100%;
+}
+
+td {
+  text-align: left;
+}
+
+.header-image {
+  background-image: url("https://img.icons8.com/bubbles/50/000000/money.png");
+  background-size: cover;
+  vertical-align: middle;
+  margin-top: -8px;
+}
+
+.currency-icon {
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+.net-salary {
+  color: green;
+}
+
+.previous-salary {
+  color: green;
+  font-size: medium;
+}
+
+@media ($mat-xsmall) {
+  .mat-card-header .mat-card-title {
+    font-size: 17px;
+  }
+}

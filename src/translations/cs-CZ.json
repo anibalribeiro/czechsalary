@@ -1,0 +1,35 @@
+{
+  "APP_NAME": "Czech Salary",
+  "ABOUT": "About",
+  "HOME": "Home",
+  "FREELANCER": "Freelancer Salary Calculation",
+  "VERSION": "Version",
+  "LANGUAGES": {
+    "ENGLISH": "Anglictina",
+    "CZECH": "Cesky"
+  },
+  "HEADER_1": "Calculation of net wages of employees in Czech Republic.",
+  "HEADER_2": "According to the tax package for 2021 approved by the Senate of the Parliament of the Czech Republic and the Chamber of Deputies on 22 December 2020.",
+  "TAX_TYPE": {
+    "PAYROLL_COSTS": "Payroll Costs"
+  },
+  "SALARY_FORM": {
+    "SALARY": "Your gross salary in CZK (Monthly)",
+    "STUDENT": "Are you a student aged under 26?",
+    "KIDS": "Number of Kids",
+    "DISABILITY": "Disability Type",
+    "DISABILITY_TYPES": {
+      "NONE": "None",
+      "FIRST_DEGREE": "FIRST_DEGREE",
+      "SECOND_DEGREE": "SECOND_DEGREE",
+      "THIRD_DEGREE": "THIRD_DEGREE"
+    },
+    "ZTP": "ZTP",
+    "HAS_CAR": "Do you have a car?",
+    "CAR_PRICE": "Car price",
+    "MANDATORY_FIELD": "This field is mandatory"
+  },
+  "FREELANCER_PAGE": {
+    "COMING_SOON": "Coming soon..."
+  }
+}

@@ -1,0 +1,22 @@
+@import "src/theme/theme-variables";
+
+.salary-container {
+  padding: 35px;
+}
+
+.salary-details-container {
+  padding-left: 35px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+@media ($mat-xsmall) {
+  .salary-container {
+    padding: 0;
+  }
+  .salary-details-container {
+    padding: 0;
+  }
+}

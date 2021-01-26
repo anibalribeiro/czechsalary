@@ -1,0 +1,63 @@
+<div class="container">
+  <mat-card>
+    <h1>
+      <mat-card-title translate>APP_NAME</mat-card-title>
+    </h1>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="25px"
+      fxLayout.sm="column"
+      fxLayout.xs="column"
+      fxLayoutGap.sm="5px"
+      fxLayoutGap.xs="5px"
+      class="salary-container"
+    >
+      <div>
+        <mat-card-content>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="icon-anibal"></div>
+              <mat-card-title>Anibal Ribeiro</mat-card-title>
+              <mat-card-subtitle>Software Engineer</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p translate>ABOUT_PAGE.DESCRIPTION_ANIBAL</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <a mat-raised-button href="#"
+                ><img src="https://img.icons8.com/ios-glyphs/30/000000/github.png" /> GitHub</a
+              >
+              <a mat-raised-button href="#"
+                ><img src="https://img.icons8.com/fluent/30/000000/linkedin-circled.png" /> LinkedIn</a
+              >
+            </mat-card-actions>
+          </mat-card>
+        </mat-card-content>
+      </div>
+      <div>
+        <mat-card-content>
+          <mat-card class="example-card">
+            <mat-card-header>
+              <div mat-card-avatar class="icon-denisa"></div>
+              <mat-card-title>Denisa Krocova</mat-card-title>
+              <mat-card-subtitle>Tax Advisor</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <p translate>ABOUT_PAGE.DESCRIPTION_ANIBAL</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <a mat-raised-button href="#"
+                ><img src="https://img.icons8.com/fluent/30/000000/linkedin-circled.png" /> LinkedIn</a
+              >
+            </mat-card-actions>
+          </mat-card>
+        </mat-card-content>
+      </div>
+    </div>
+    <mat-card-actions>
+      <mat-icon>code</mat-icon>
+      <span translate>VERSION</span> {{ version }}
+    </mat-card-actions>
+  </mat-card>
+</div>

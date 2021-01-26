@@ -1,0 +1,62 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="header-image"></div>
+    <mat-card-title>
+      {{ 'SALARY_DETAILS.NET_SALARY_IS' | translate }}<b class="net-salary">{{ netSalary | number }} CZK</b>
+      {{ 'SALARY_DETAILS.COMPARED_TO' | translate }}<i class="previous-salary">{{ netSalary | number }} CZK</i>
+      {{ 'SALARY_DETAILS.FROM_LAST_YEAR' | translate }}
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayout.sm="column"
+      fxLayout.xs="column"
+      fxLayoutGap="25px"
+      fxLayoutGap.sm="5px"
+      fxLayoutGap.xs="5px"
+    >
+      <div>
+        <img
+          class="currency-icon"
+          src="https://img.icons8.com/dotty/80/000000/euro-pound-exchange.png"
+          width="35"
+          height="35"
+        /><b>€ {{ netSalaryEur | number }}</b>
+      </div>
+      <div>
+        <img
+          class="currency-icon"
+          src="https://img.icons8.com/dotty/80/000000/us-dollar.png"
+          width="35"
+          height="35"
+        /><b>$ {{ netSalaryUsd | number }}</b>
+      </div>
+      <div>
+        <img
+          class="currency-icon"
+          src="https://img.icons8.com/dotty/80/000000/british-pound.png"
+          width="35"
+          height="35"
+        /><b>£ {{ netSalaryGbp | number }}</b>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<table mat-table [dataSource]="salaryDetails" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="taxName">
+    <th mat-header-cell *matHeaderCellDef>Tax</th>
+    <td mat-cell *matCellDef="let element">{{ element.taxName | translate }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">{{ element.amount | number }} CZK</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['taxName', 'amount']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['taxName', 'amount']"></tr>
+</table>

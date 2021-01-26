@@ -1,0 +1,85 @@
+<div
+  fxLayout="row"
+  fxLayout.sm="column"
+  fxLayout.xs="column"
+  fxLayoutGap.sm="25px"
+  fxLayoutGap.xs="25px"
+  class="salary-container"
+>
+  <div fxFlex="40%">
+    <form [formGroup]="salaryForm">
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label translate>SALARY_FORM.SALARY</mat-label>
+        <input
+          matInput
+          type="number"
+          [placeholder]="'SALARY_FORM.SALARY' | translate"
+          formControlName="salary"
+          class="example-right-align"
+        />
+        <span matPrefix>CZK&nbsp;</span>
+        <mat-error *ngIf="salaryForm.controls['salary'].hasError('required')" translate>
+          SALARY_FORM.MANDATORY_FIELD
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-checkbox formControlName="student">{{ 'SALARY_FORM.STUDENT' | translate }}</mat-checkbox>
+        <input matInput [hidden]="true" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label translate>SALARY_FORM.KIDS</mat-label>
+        <mat-select formControlName="numberOfKids">
+          <mat-option *ngFor="let number of [0, 1, 2, 3, 4]" [value]="number">
+            {{ number }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label translate>SALARY_FORM.DISABILITY</mat-label>
+        <mat-select formControlName="disabilityType">
+          <mat-option value="NONE">{{ 'SALARY_FORM.DISABILITY_TYPES.NONE' | translate }}</mat-option>
+          <mat-option value="FIRST_DEGREE">{{ 'SALARY_FORM.DISABILITY_TYPES.FIRST_DEGREE' | translate }}</mat-option>
+          <mat-option value="SECOND_DEGREE">{{ 'SALARY_FORM.DISABILITY_TYPES.SECOND_DEGREE' | translate }}</mat-option>
+          <mat-option value="THIRD_DEGREE">{{ 'SALARY_FORM.DISABILITY_TYPES.THIRD_DEGREE' | translate }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-checkbox formControlName="ztp">{{ 'SALARY_FORM.ZTP' | translate }}</mat-checkbox>
+        <input matInput [hidden]="true" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-checkbox formControlName="hasCar">{{ 'SALARY_FORM.HAS_CAR' | translate }}</mat-checkbox>
+        <input matInput [hidden]="true" />
+      </mat-form-field>
+
+      <mat-form-field *ngIf="form.hasCar.value" class="full-width" appearance="fill">
+        <mat-label translate>SALARY_FORM.CAR_PRICE</mat-label>
+        <input
+          matInput
+          type="number"
+          [placeholder]="'SALARY_FORM.CAR_PRICE' | translate"
+          formControlName="priceOfCar"
+          class="example-right-align"
+        />
+        <span matPrefix>CZK&nbsp;</span>
+        <mat-error *ngIf="salaryForm.controls['priceOfCar'].hasError('required')" translate>
+          SALARY_FORM.MANDATORY_FIELD
+        </mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="salaryForm.invalid" (click)="calculate()">Calculate</button>
+    </form>
+  </div>
+  <div fxFlex="60%" class="salary-details-container">
+    <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
+    <salary-details
+      *ngIf="salaryDetails && netSalary"
+      [netSalary]="netSalary"
+      [salaryDetails]="salaryDetails"
+    ></salary-details>
+  </div>
+</div>

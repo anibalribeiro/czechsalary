@@ -1,0 +1,25 @@
+<mat-toolbar class="mat-elevation-z6 navbar" color="primary">
+  <div fxHide.gt-sm fxLayoutAlign="start center">
+    <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="title">{{ title }}</span>
+  </div>
+  <div fxHide.lt-md>
+    <a class="brand" href="https://github.com/ngx-rocket" translate>APP_NAME</a>
+    <button mat-button routerLink="/home" routerLinkActive="active">
+      <mat-icon>home</mat-icon>
+      <span translate>HOME</span>
+    </button>
+    <button mat-button routerLink="/about" routerLinkActive="active">
+      <mat-icon>info</mat-icon>
+      <span translate>ABOUT</span>
+    </button>
+    <button mat-button routerLink="/freelancer" routerLinkActive="active">
+      <mat-icon>attach_money</mat-icon>
+      <span translate>FREELANCER</span>
+    </button>
+  </div>
+  <span fxFlex></span>
+  <app-language-selector icon="true"></app-language-selector>
+</mat-toolbar>

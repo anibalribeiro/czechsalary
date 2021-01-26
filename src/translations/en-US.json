@@ -1,0 +1,48 @@
+{
+  "APP_NAME": "Czech Salary",
+  "ABOUT": "About",
+  "HOME": "Home",
+  "FREELANCER": "Freelancer Salary Calculation",
+  "VERSION": "Version",
+  "LANGUAGES": {
+    "ENGLISH": "English",
+    "CZECH": "Czech"
+  },
+  "HEADER_1": "Calculation of net wages of employees in Czech Republic.",
+  "HEADER_2": "According to the tax package for 2021 approved by the Senate of the Parliament of the Czech Republic and the Chamber of Deputies on 22 December 2020.",
+  "ABOUT_PAGE": {
+    "DESCRIPTION_ANIBAL": "I've decided to create this application because the current solutions are or in Czech language only or they are not updated with the new law.",
+    "DESCRIPTION_DENISA": ""
+  },
+  "TAX_TYPE": {
+    "HEALTH_INSURANCE_PAID_EMPLOYEE": "Health Insurance Paid by the Employee",
+    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "",
+    "PERSONAL_INCOME_TAX": "",
+    "TAX_CREDITS": "",
+    "TAX_BENEFITS": ""
+  },
+  "SALARY_FORM": {
+    "SALARY": "Your gross salary in CZK (Monthly)",
+    "STUDENT": "Are you a student aged under 26?",
+    "KIDS": "Number of Kids",
+    "DISABILITY": "Disability Type",
+    "DISABILITY_TYPES": {
+      "NONE": "None",
+      "FIRST_DEGREE": "FIRST_DEGREE",
+      "SECOND_DEGREE": "SECOND_DEGREE",
+      "THIRD_DEGREE": "THIRD_DEGREE"
+    },
+    "ZTP": "ZTP",
+    "HAS_CAR": "Do you have a car?",
+    "CAR_PRICE": "Car price",
+    "MANDATORY_FIELD": "This field is mandatory"
+  },
+  "SALARY_DETAILS": {
+    "NET_SALARY_IS": "Your net salary is: ",
+    "COMPARED_TO": "compared to: ",
+    "FROM_LAST_YEAR": "from last year!"
+  },
+  "FREELANCER_PAGE": {
+    "COMING_SOON": "Coming soon..."
+  }
+}

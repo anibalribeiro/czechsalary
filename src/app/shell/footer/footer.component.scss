@@ -1,0 +1,37 @@
+@import "src/theme/theme-variables";
+
+.footer {
+  background-color: #eee;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-content {
+  text-align: center;
+  width: 100%;
+  color: #606060;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+a {
+  color: #606060;
+  text-decoration: none;
+}
+
+@media ($mat-xsmall) {
+  .footer-content {
+    font-size: small;
+  }
+  .avatar {
+    display: none;
+  }
+}
