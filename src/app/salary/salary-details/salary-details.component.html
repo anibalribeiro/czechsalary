@@ -45,19 +45,51 @@
     </div>
   </mat-card-content>
 </mat-card>
-<table mat-table [dataSource]="salaryDetails" class="mat-elevation-z8">
-  <!-- Position Column -->
-  <ng-container matColumnDef="taxName">
-    <th mat-header-cell *matHeaderCellDef>Tax</th>
-    <td mat-cell *matCellDef="let element">{{ element.taxName | translate }}</td>
-  </ng-container>
+<div fxLayout="column" fxLayoutGap="15px">
+  <div>
+    <table [dataSource]="salaryDetails" class="mat-elevation-z8" mat-table>
+      <!-- Position Column -->
+      <ng-container matColumnDef="taxName">
+        <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.TAX' | translate }}</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.taxName | translate }}
+          <mat-icon #tooltip="matTooltip" *ngIf="element.toolTip" [matTooltip]="element.toolTip | translate"
+            >help
+          </mat-icon>
+        </td>
+      </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef>Amount</th>
-    <td mat-cell *matCellDef="let element">{{ element.amount | number: '1.0-0' }} CZK</td>
-  </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="amount">
+        <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.AMOUNT' | translate }}</th>
+        <td *matCellDef="let element" mat-cell>{{ element.amount | number: '1.0-0' }} CZK</td>
+      </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="['taxName', 'amount']"></tr>
-  <tr mat-row *matRowDef="let row; columns: ['taxName', 'amount']"></tr>
-</table>
+      <tr *matHeaderRowDef="['taxName', 'amount']" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: ['taxName', 'amount']" mat-row></tr>
+    </table>
+  </div>
+  <div>
+    <table [dataSource]="salaryDetailsPaidEmployer" class="mat-elevation-z8" mat-table>
+      <!-- Position Column -->
+      <ng-container matColumnDef="taxName">
+        <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.TAX' | translate }}</th>
+        <td *matCellDef="let element" mat-cell>
+          {{ element.taxName | translate }}
+          <mat-icon #tooltip="matTooltip" *ngIf="element.toolTip" [matTooltip]="element.toolTip | translate"
+            >help
+          </mat-icon>
+        </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="amount">
+        <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.AMOUNT' | translate }}</th>
+        <td *matCellDef="let element" mat-cell>{{ element.amount | number: '1.0-0' }} CZK</td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="['taxName', 'amount']" mat-header-row></tr>
+      <tr *matRowDef="let row; columns: ['taxName', 'amount']" mat-row></tr>
+    </table>
+  </div>
+</div>

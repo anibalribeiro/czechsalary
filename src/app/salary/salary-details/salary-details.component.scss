@@ -10,6 +10,7 @@ table {
 
 td {
   text-align: left;
+  width: 79%;
 }
 
 .header-image {
@@ -31,6 +32,11 @@ td {
 .previous-salary {
   color: green;
   font-size: medium;
+}
+
+.mat-icon {
+  vertical-align: middle;
+  margin-top: -5px;
 }
 
 @media ($mat-xsmall) {

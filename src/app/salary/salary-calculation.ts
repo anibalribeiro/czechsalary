@@ -11,6 +11,9 @@ export default class SalaryCalculation {
   static TAX_CREDIT = 2320;
   static TAX_CREDIT_2020 = 2070;
 
+  static HEALTH_INSURANCE_EMPLOYER = 0.09;
+  static SOCIAL_INSURANCE_EMPLOYER = 0.248;
+
   static CAR_TAX = 0.01;
 
   // BENEFITS
@@ -110,13 +113,31 @@ export default class SalaryCalculation {
     );
   }
 
+  static getHealthInsurancePaidByEmployer(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.HEALTH_INSURANCE_EMPLOYER;
+  }
+
+  static getSocialInsurancePaidByEmployer(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.SOCIAL_INSURANCE_EMPLOYER;
+  }
+
+  static getTotalCostByEmployer(salaryModel: SalaryModel): number {
+    return (
+      salaryModel.salary +
+      this.getSocialInsurancePaidByEmployer(salaryModel) +
+      this.getHealthInsurancePaidByEmployer(salaryModel)
+    );
+  }
+
   // CALCULATION OF SALARY OF 2020
   static getSuperGrossSalary(salaryModel: SalaryModel): number {
     return salaryModel.salary * 1.338;
   }
+
   static getTaxCreditFrom2020(): number {
     return this.TAX_CREDIT_2020;
   }
+
   static getPersonalIncomeTax2020(salaryModel: SalaryModel, superGross: number): number {
     if (salaryModel.salary + this.getCarPrice(salaryModel) < this.AVERAGE_SALARY_TIMES_4_2020) {
       return this.getGrossSalaryWithCar(salaryModel) * 1.338 * 0.15;

@@ -1,7 +1,14 @@
 # CzechSalary
 
-This project was generated with [ngX-Rocket](https://github.com/ngx-rocket/generator-ngx-rocket/)
-version 9.2.0
+[![Github Status](https://github.com/anibalribeiro/czechsalary/workflows/main%20workflow/badge.svg)](https://github.com/anibalribeiro/czechsalary/actions?query=workflow%3A%22main+workflow%22)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/07b39230-54d0-484e-ae60-046b41800a88/deploy-status)](https://app.netlify.com/sites/friendly-darwin-63ac20/deploys)
+
+Calculation of net wages for employees in Czech Republic - 2021.
+
+Due to the Income Tax Act amendment effective from 1.1.2021, the so called „super gross salary“ was abolished and the
+general tax allowance was increased. This leads to increasing of the net wage of the employees.
+
+<b>Calculate how much more you will be getting from January 20210!🤑</b>
 
 # Getting started
 
@@ -15,33 +22,6 @@ npm install
 
 ```sh
 npm start
-```
-
-# Project structure
-
-```
-dist/                        web app production build
-docs/                        project docs and coding guides
-e2e/                         end-to-end tests
-src/                         project source code
-|- app/                      app components
-|  |- core/                  core module (singleton services and single-use components)
-|  |- shared/                shared module  (common components, directives and pipes)
-|  |- app.component.*        app root component (shell)
-|  |- app.module.ts          app root module definition
-|  |- app-routing.module.ts  app routes
-|  +- ...                    additional modules and components
-|- assets/                   app assets (images, fonts, sounds...)
-|- environments/             values for various build environments
-|- theme/                    app global scss variables and theme
-|- translations/             translations files
-|- index.html                html entry point
-|- main.scss                 global style entry point
-|- main.ts                   app entry point
-|- polyfills.ts              polyfills needed by Angular
-+- setup-jest.ts             unit tests entry point
-reports/                     test and coverage reports
-proxy.conf.js                backend proxy configuration
 ```
 
 # Main tasks
@@ -58,13 +38,7 @@ Task automation is based on [NPM scripts](https://docs.npmjs.com/misc/scripts).
 | `npm run e2e`                                   | Run e2e tests using [Protractor](http://www.protractortest.org)                                                  |
 | `npm run lint`                                  | Lint code                                                                                                        |
 | `npm run translations:extract`                  | Extract strings from code and templates to `src/app/translations/template.json`                                  |
-| `npm run docs`                                  | Display project documentation and coding guides                                                                  |
 | `npm run prettier`                              | Automatically format all `.ts`, `.js` & `.scss` files                                                            |
-
-When building the application, you can specify the target configuration using the additional flag
-`--configuration <name>` (do not forget to prepend `--` to pass arguments to npm scripts).
-
-The default build configuration is `prod`.
 
 ## Development server
 
@@ -94,11 +68,6 @@ A pre-commit git hook has been configured on this project to automatically forma
 (pretty-quick)[https://github.com/azz/pretty-quick], so you don't have to care for it.
 
 You can also force code formatting by running the command `npm run prettier`.
-
-# What's in the box
-
-The app template is based on [HTML5](http://whatwg.org/html), [TypeScript](http://www.typescriptlang.org) and
-[Sass](http://sass-lang.com). The translation files use the common [JSON](http://www.json.org) format.
 
 #### Tools
 
