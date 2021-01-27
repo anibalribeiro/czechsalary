@@ -3,11 +3,13 @@ import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
 
 export default class SalaryCalculation {
   static AVERAGE_SALARY_TIMES_4 = 141764;
+  static AVERAGE_SALARY_TIMES_4_2020 = 139340;
   static HEALTH_INSURANCE = 0.045;
   static SOCIAL_INSURANCE = 0.065;
   static PERSONAL_INCOME_TAX_15 = 0.15;
   static PERSONAL_INCOME_TAX_23 = 0.23;
   static TAX_CREDIT = 2320;
+  static TAX_CREDIT_2020 = 2070;
 
   static CAR_TAX = 0.01;
 
@@ -23,9 +25,16 @@ export default class SalaryCalculation {
 
   static getGrossSalaryWithCar(salaryModel: SalaryModel): number {
     if (salaryModel.hasCar && salaryModel.priceOfCar) {
-      return salaryModel.salary + salaryModel.priceOfCar * this.CAR_TAX;
+      return salaryModel.salary + this.getCarPrice(salaryModel);
     }
     return salaryModel.salary;
+  }
+
+  static getCarPrice(salaryModel: SalaryModel): number {
+    if (salaryModel.hasCar && salaryModel.priceOfCar) {
+      return salaryModel.priceOfCar * this.CAR_TAX;
+    }
+    return 0;
   }
 
   static getHealthInsurancePaidByEmployee(salaryModel: SalaryModel): number {
@@ -42,7 +51,8 @@ export default class SalaryCalculation {
     } else {
       return (
         (salaryModel.salary - this.AVERAGE_SALARY_TIMES_4) * this.PERSONAL_INCOME_TAX_23 +
-        this.AVERAGE_SALARY_TIMES_4 * this.PERSONAL_INCOME_TAX_15
+        this.AVERAGE_SALARY_TIMES_4 * this.PERSONAL_INCOME_TAX_15 +
+        this.getCarPrice(salaryModel) * this.PERSONAL_INCOME_TAX_15
       );
     }
   }
@@ -96,6 +106,36 @@ export default class SalaryCalculation {
       this.getSocialInsurancePaidByEmployee(salaryModel) -
       this.getPersonalIncomeTax(salaryModel) +
       this.getTaxCredit() +
+      this.getTaxBenefits(salaryModel)
+    );
+  }
+
+  // CALCULATION OF SALARY OF 2020
+  static getSuperGrossSalary(salaryModel: SalaryModel): number {
+    return salaryModel.salary * 1.338;
+  }
+  static getTaxCreditFrom2020(): number {
+    return this.TAX_CREDIT_2020;
+  }
+  static getPersonalIncomeTax2020(salaryModel: SalaryModel, superGross: number): number {
+    if (salaryModel.salary + this.getCarPrice(salaryModel) < this.AVERAGE_SALARY_TIMES_4_2020) {
+      return this.getGrossSalaryWithCar(salaryModel) * 1.338 * 0.15;
+    } else {
+      return (
+        this.getGrossSalaryWithCar(salaryModel) * 1.338 * 0.15 +
+        (this.getGrossSalaryWithCar(salaryModel) - this.AVERAGE_SALARY_TIMES_4_2020) * 0.07
+      );
+    }
+  }
+
+  static getNetSalaryFrom2020(salaryModel: SalaryModel): number {
+    const superGross = this.getSuperGrossSalary(salaryModel);
+    return (
+      salaryModel.salary -
+      this.getHealthInsurancePaidByEmployee(salaryModel) -
+      this.getSocialInsurancePaidByEmployee(salaryModel) -
+      this.getPersonalIncomeTax2020(salaryModel, superGross) +
+      this.getTaxCreditFrom2020() +
       this.getTaxBenefits(salaryModel)
     );
   }

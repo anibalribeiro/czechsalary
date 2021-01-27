@@ -1,33 +1,47 @@
 {
-  "APP_NAME": "Czech Salary",
-  "ABOUT": "About",
-  "HOME": "Home",
+  "APP_NAME": "Český plat 2021",
+  "ABOUT": "O webu",
+  "HOME": "Domů",
   "FREELANCER": "Freelancer Salary Calculation",
-  "VERSION": "Version",
+  "VERSION": "Verze",
   "LANGUAGES": {
     "ENGLISH": "Anglictina",
     "CZECH": "Cesky"
   },
-  "HEADER_1": "Calculation of net wages of employees in Czech Republic.",
-  "HEADER_2": "According to the tax package for 2021 approved by the Senate of the Parliament of the Czech Republic and the Chamber of Deputies on 22 December 2020.",
+  "HEADER_1": "Kalkulačka čisté mzdy 2021",
+  "HEADER_2": "V důsledku novely zákona o daních z příjmů s účinností od 1.1.2021 došlo ke zrušení tzv. super hrubé mzdy a navýšení základní slevy na poplatníka.<br/>To se projeví navýšením čisté mzdy zaměstnanců. <b>Spočítejte si, o kolik si přilepšíte.\uD83E\uDD11</b>",
+  "ABOUT_PAGE": {
+    "DESCRIPTION_ANIBAL": "I've decided to create this application because the current solutions are or in Czech language only or they are not updated with the new law.",
+    "DESCRIPTION_DENISA": ""
+  },
   "TAX_TYPE": {
-    "PAYROLL_COSTS": "Payroll Costs"
+    "HEALTH_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
+    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
+    "PERSONAL_INCOME_TAX": "Daň z příjmů - záloha",
+    "TAX_CREDITS": "Sleva na dani",
+    "TAX_BENEFITS": "Daňové zvýhodnění"
   },
   "SALARY_FORM": {
-    "SALARY": "Your gross salary in CZK (Monthly)",
-    "STUDENT": "Are you a student aged under 26?",
-    "KIDS": "Number of Kids",
-    "DISABILITY": "Disability Type",
+    "SALARY": "Měsíční hrubá mzda v Kč",
+    "STUDENT": "Jste studentem prezenčního studia a je vám méně než 26 let (28 let u PhD)?",
+    "KIDS": "Počet dětí",
+    "DISABILITY": "Zdravotní znevýhodnění",
     "DISABILITY_TYPES": {
-      "NONE": "None",
-      "FIRST_DEGREE": "FIRST_DEGREE",
-      "SECOND_DEGREE": "SECOND_DEGREE",
-      "THIRD_DEGREE": "THIRD_DEGREE"
+      "NONE": "Žádný",
+      "FIRST_DEGREE": "Invalidita 1. stupně",
+      "SECOND_DEGREE": "Invalidita 2. stupně",
+      "THIRD_DEGREE": "Invalidita 3. stupně"
     },
-    "ZTP": "ZTP",
-    "HAS_CAR": "Do you have a car?",
-    "CAR_PRICE": "Car price",
-    "MANDATORY_FIELD": "This field is mandatory"
+    "ZTP": "Jsem držitelem průkazu ZTP",
+    "HAS_CAR": "Máte k dispozici služební auto, které smíte používat i k soukromým účelům?",
+    "CAR_PRICE": "Odhadovaná pořizovací cena auta",
+    "MANDATORY_FIELD": "Toto pole je povinné",
+    "CALCULATE": ""
+  },
+  "SALARY_DETAILS": {
+    "NET_SALARY_IS": "Vaše čistá měsíční mzda v roce 2021: ",
+    "COMPARED_TO": "v porovnání s 2020: ",
+    "FROM_LAST_YEAR": ""
   },
   "FREELANCER_PAGE": {
     "COMING_SOON": "Coming soon..."
