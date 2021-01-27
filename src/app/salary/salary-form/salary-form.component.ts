@@ -16,6 +16,7 @@ export class SalaryFormComponent implements OnInit {
   salaryForm: FormGroup;
   salary: SalaryModel;
   netSalary: number;
+  netSalary2020: number;
   salaryDetails: SalaryDetailsModel[];
 
   isLoading = false;
@@ -25,9 +26,11 @@ export class SalaryFormComponent implements OnInit {
   ngOnInit() {
     const savedFormSalary = JSON.parse(localStorage.getItem('salaryForm'));
     const savedNetSalary = JSON.parse(localStorage.getItem('netSalary'));
+    const savedNetSalary2020 = JSON.parse(localStorage.getItem('netSalary2020'));
     const savedSalaryDetails = JSON.parse(localStorage.getItem('salaryDetails'));
     if (savedNetSalary && savedSalaryDetails) {
       this.netSalary = savedNetSalary;
+      this.netSalary2020 = savedNetSalary2020;
       this.salaryDetails = savedSalaryDetails;
     }
 
@@ -59,6 +62,7 @@ export class SalaryFormComponent implements OnInit {
     };
     this.salaryDetails = this.buildSalaryDetails(this.salary);
     this.netSalary = SalaryCalculation.getNetSalary(this.salary);
+    this.netSalary2020 = SalaryCalculation.getNetSalaryFrom2020(this.salary);
 
     setTimeout(() => {
       this.isLoading = false;
@@ -95,6 +99,7 @@ export class SalaryFormComponent implements OnInit {
   private saveDataInLocalStorage() {
     localStorage.setItem('salaryForm', JSON.stringify(this.salary));
     localStorage.setItem('netSalary', JSON.stringify(this.netSalary));
+    localStorage.setItem('netSalary2020', JSON.stringify(this.netSalary2020));
     localStorage.setItem('salaryDetails', JSON.stringify(this.salaryDetails));
   }
 }

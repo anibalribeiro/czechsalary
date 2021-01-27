@@ -15,6 +15,7 @@ import * as _ from 'lodash';
 })
 export class SalaryDetailsComponent implements OnInit {
   @Input() netSalary: number;
+  @Input() netSalary2020: number;
   @Input() salaryDetails: SalaryDetailsModel[];
 
   netSalaryEur: number;

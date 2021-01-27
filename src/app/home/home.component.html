@@ -1,7 +1,7 @@
 <div class="container">
   <mat-card>
     <h1 translate>HEADER_1</h1>
-    <h2 translate>HEADER_2</h2>
+    <p [innerHTML]="'HEADER_2' | translate"></p>
     <mat-card-content>
       <salary-form></salary-form>
     </mat-card-content>
