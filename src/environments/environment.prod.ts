@@ -10,7 +10,7 @@ export const environment = {
   appName: 'Czech Salary',
   production: true,
   version: env.npm_package_version,
-  serverUrl: 'https://api.exchangeratesapi.io',
+  serverUrl: 'https://api.exchangeratesapi.io/',
   defaultLanguage: 'en-US',
   supportedLanguages: [
     { name: 'CZECH', code: 'cs-CZ', icon: 'https://img.icons8.com/office/16/000000/czech-republic.png' },

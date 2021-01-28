@@ -10,6 +10,7 @@
   </mat-card-header>
   <mat-card-content>
     <div
+      *ngIf="salaries$ | async as salary"
       fxLayout="row"
       fxLayoutAlign="center center"
       fxLayout.sm="column"
@@ -24,7 +25,7 @@
           src="https://img.icons8.com/dotty/80/000000/euro-pound-exchange.png"
           width="35"
           height="35"
-        /><b>€ {{ netSalaryEur | number: '1.0-0' }}</b>
+        /><b>€ {{ salary.eurSalary | number: '1.0-0' }}</b>
       </div>
       <div>
         <img
@@ -32,7 +33,7 @@
           src="https://img.icons8.com/dotty/80/000000/us-dollar.png"
           width="35"
           height="35"
-        /><b>$ {{ netSalaryUsd | number: '1.0-0' }}</b>
+        /><b>$ {{ salary.usdSalary | number: '1.0-0' }}</b>
       </div>
       <div>
         <img
@@ -40,7 +41,7 @@
           src="https://img.icons8.com/dotty/80/000000/british-pound.png"
           width="35"
           height="35"
-        /><b>£ {{ netSalaryGbp | number: '1.0-0' }}</b>
+        /><b>£ {{ salary.gbpSalary | number: '1.0-0' }}</b>
       </div>
     </div>
   </mat-card-content>
