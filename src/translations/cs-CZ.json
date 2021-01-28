@@ -48,8 +48,14 @@
     "TAX": "Položka",
     "AMOUNT": "Částka",
     "TOOLTIPS": {
-      "TAX_CREDITS": "Sleva na poplatíka (podepsané \"růžové\" prohlášení)",
-      "TAX_BENEFITS": "Ostatní slevy (Student, Děti, Invalidita, ZTP)"
+      "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% z hrubého příjmu",
+      "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% z hrubého příjmu",
+      "PERSONAL_INCOME_TAX": "15% z hrubého příjmu a nepežního příjmu z auta; 23% z hrubých příjmů přesahující 141 764 CZK",
+      "TAX_CREDITS": "Předpokládá se, že jste podepsal/a \"růžové Prohlášení\". Toto Prohlášení může být současně podepsáno pouze u jednoho zaměstnavatele. Prohlášením v podstatě prohlašujete, že jste poplatníkem daně z příjmů fyz. osob, a že jste prohlášení podepsal/a jen u jednoho zaměstnavatele v daný měsíc. Při změně zaměstnání lze prohlášení podepsat u nového zaměstnavatele. Toto opravňuje ke slevě na poplatníka ve výši 2320 Kč/měsíc",
+      "TAX_BENEFITS": "Ostatní slevy (Student, Děti, Invalidita, ZTP)",
+      "TOTAL_COST_FOR_EMPLOYER": "Toto je výše nákladu vašeho zaměstnavatele na vaše zaměstnání",
+      "HEALTH_INSURANCE_PAID_EMPLOYER": "9% z hrubého příjmu",
+      "SOCIAL_INSURANCE_PAID_EMPLOYER": "24,8% z hrubého příjmu"
     }
   },
   "FREELANCER_PAGE": {
