@@ -10,13 +10,7 @@
     <form [formGroup]="salaryForm">
       <mat-form-field class="full-width" appearance="fill">
         <mat-label translate>SALARY_FORM.SALARY</mat-label>
-        <input
-          matInput
-          type="number"
-          [placeholder]="'SALARY_FORM.SALARY' | translate"
-          formControlName="salary"
-          class="example-right-align"
-        />
+        <input matInput type="number" [placeholder]="'SALARY_FORM.SALARY' | translate" formControlName="salary" />
         <span matPrefix>CZK&nbsp;</span>
         <mat-error *ngIf="salaryForm.controls['salary'].hasError('required')" translate>
           SALARY_FORM.MANDATORY_FIELD
@@ -54,6 +48,13 @@
 
       <mat-form-field class="full-width" appearance="fill">
         <mat-checkbox formControlName="hasCar">{{ 'SALARY_FORM.HAS_CAR' | translate }}</mat-checkbox>
+        <mat-icon
+          #tooltip="matTooltip"
+          [matTooltip]="'SALARY_FORM.TOOLTIPS.HAS_CAR' | translate"
+          [matTooltipClass]="'tooltip'"
+        >
+          help
+        </mat-icon>
         <input matInput [hidden]="true" />
       </mat-form-field>
 

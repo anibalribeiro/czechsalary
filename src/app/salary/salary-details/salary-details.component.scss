@@ -39,6 +39,13 @@ td {
   margin-top: -5px;
 }
 
+.obs-text {
+  text-align: left;
+  font-size: small;
+  font-style: italic;
+  padding-left: 5px;
+}
+
 @media ($mat-xsmall) {
   .mat-card-header .mat-card-title {
     font-size: 17px;
