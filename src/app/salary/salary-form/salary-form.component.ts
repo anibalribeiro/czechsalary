@@ -81,14 +81,17 @@ export class SalaryFormComponent implements OnInit {
     return [
       {
         taxName: TaxTypeEnum.HEALTH_INSURANCE_PAID_EMPLOYEE,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.HEALTH_INSURANCE_PAID_EMPLOYEE',
         amount: SalaryCalculation.getHealthInsurancePaidByEmployee(salary),
       },
       {
         taxName: TaxTypeEnum.SOCIAL_INSURANCE_PAID_EMPLOYEE,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.SOCIAL_INSURANCE_PAID_EMPLOYEE',
         amount: SalaryCalculation.getSocialInsurancePaidByEmployee(salary),
       },
       {
         taxName: TaxTypeEnum.PERSONAL_INCOME_TAX,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.PERSONAL_INCOME_TAX',
         amount: SalaryCalculation.getPersonalIncomeTax(salary),
       },
       {
@@ -108,14 +111,17 @@ export class SalaryFormComponent implements OnInit {
     return [
       {
         taxName: TaxTypeEnum.TOTAL_COST_FOR_EMPLOYER,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.TOTAL_COST_FOR_EMPLOYER',
         amount: SalaryCalculation.getTotalCostByEmployer(salary),
       },
       {
         taxName: TaxTypeEnum.HEALTH_INSURANCE_PAID_EMPLOYER,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.HEALTH_INSURANCE_PAID_EMPLOYER',
         amount: SalaryCalculation.getHealthInsurancePaidByEmployer(salary),
       },
       {
         taxName: TaxTypeEnum.SOCIAL_INSURANCE_PAID_EMPLOYER,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.SOCIAL_INSURANCE_PAID_EMPLOYER',
         amount: SalaryCalculation.getSocialInsurancePaidByEmployer(salary),
       },
     ];
