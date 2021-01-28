@@ -1,12 +1,12 @@
 {
-  "APP_NAME": "Český plat 2021",
+  "APP_NAME": "Česká mzda 2021",
   "ABOUT": "O webu",
   "HOME": "Domů",
   "FREELANCER": "Výpočet čistého příjmu živnostníků",
   "VERSION": "Verze",
   "LANGUAGES": {
-    "ENGLISH": "Anglicky",
-    "CZECH": "Cesky"
+    "ENGLISH": "English",
+    "CZECH": "Česky"
   },
   "HEADER_1": "Kalkulačka čisté mzdy - 2021",
   "HEADER_2": "V důsledku novely zákona o daních z příjmů s účinností od 1.1.2021 došlo ke zrušení tzv. super hrubé mzdy a navýšení základní slevy na poplatníka z 2030 Kč na 2320 Kč. To se projeví navýšením čisté mzdy zaměstnanců.<br/>Od roku 2021 existují 2 sazby daně: 15% základní a 23% progresivní, která se uplatní na hrubé příjmy převyšující 141 tis. Kč.<br/><b>Spočítejte si, o kolik si přilepšíte od ledna 2021.\uD83E\uDD11</b>",
@@ -36,17 +36,22 @@
       "THIRD_DEGREE": "Invalidita 3. stupně"
     },
     "ZTP": "Jsem držitelem průkazu ZTP",
-    "HAS_CAR": "Používáte služební auto i k soukromým účelům?",
+    "HAS_CAR": "Používám služební auto i k soukromým účelům",
     "CAR_PRICE": "Odhadovaná pořizovací cena auta",
     "MANDATORY_FIELD": "Toto pole je povinné",
-    "CALCULATE": "Spočítat čistou mzdu"
+    "CALCULATE": "Spočítat čistou mzdu",
+    "TOOLTIPS": {
+      "HAS_CAR": "Užívání firemního automobilu k soukromým účelům je považováno za nepenžení příjem zaměstnance. Tento nepeněžní příjem se ocení 1% vstupní ceny auta včetně DPH. To pak navýší hrubou mzdu, tudíž je z tohoto nepeněžního příjmu odváděna daň i SP a ZP."
+    }
   },
   "SALARY_DETAILS": {
     "NET_SALARY_IS": "Vaše čistá měsíční mzda v roce 2021: ",
     "COMPARED_TO": "v porovnání s 2020: ",
     "FROM_LAST_YEAR": "",
+    "SALARY_RAISE": "Vaše mzda je nyní o {{value}} CZK vyšší než minulý rok!",
     "TAX": "Položka",
     "AMOUNT": "Částka",
+    "OBSERVATION": "* Výsledná čistá mzda se může lišit v důsledku dalších srážek či jiných faktorů (stravenky, pracovní cesty, dovolená, nemocenská, atd.)",
     "TOOLTIPS": {
       "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% z hrubého příjmu",
       "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% z hrubého příjmu",

@@ -1,7 +1,11 @@
 <mat-card class="details">
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
-    <mat-card-title>
+    <mat-card-title
+      #tooltip="matTooltip"
+      [matTooltip]="'SALARY_DETAILS.SALARY_RAISE' | translate: { value: netSalary - netSalary2020 | number: '1.0-0' }"
+      [matTooltipClass]="'tooltip'"
+    >
       {{ 'SALARY_DETAILS.NET_SALARY_IS' | translate }}<b class="net-salary">{{ netSalary | number: '1.0-0' }} CZK</b>
       {{ 'SALARY_DETAILS.COMPARED_TO' | translate
       }}<i class="previous-salary">{{ netSalary2020 | number: '1.0-0' }} CZK</i>
@@ -54,8 +58,13 @@
         <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.TAX' | translate }}</th>
         <td *matCellDef="let element" mat-cell>
           {{ element.taxName | translate }}
-          <mat-icon #tooltip="matTooltip" *ngIf="element.toolTip" [matTooltip]="element.toolTip | translate"
-            >help
+          <mat-icon
+            *ngIf="element.toolTip"
+            #tooltip="matTooltip"
+            [matTooltip]="element.toolTip | translate"
+            [matTooltipClass]="'tooltip'"
+          >
+            help
           </mat-icon>
         </td>
       </ng-container>
@@ -77,8 +86,13 @@
         <th *matHeaderCellDef mat-header-cell>{{ 'SALARY_DETAILS.TAX' | translate }}</th>
         <td *matCellDef="let element" mat-cell>
           {{ element.taxName | translate }}
-          <mat-icon #tooltip="matTooltip" *ngIf="element.toolTip" [matTooltip]="element.toolTip | translate"
-            >help
+          <mat-icon
+            *ngIf="element.toolTip"
+            #tooltip="matTooltip"
+            [matTooltip]="element.toolTip | translate"
+            [matTooltipClass]="'tooltip'"
+          >
+            help
           </mat-icon>
         </td>
       </ng-container>
@@ -92,5 +106,8 @@
       <tr *matHeaderRowDef="['taxName', 'amount']" mat-header-row></tr>
       <tr *matRowDef="let row; columns: ['taxName', 'amount']" mat-row></tr>
     </table>
+  </div>
+  <div>
+    <p class="obs-text" translate>SALARY_DETAILS.OBSERVATION</p>
   </div>
 </div>

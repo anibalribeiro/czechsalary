@@ -26,7 +26,7 @@
   },
   "SALARY_FORM": {
     "SALARY": "Your gross salary in CZK (Monthly)",
-    "STUDENT": "Student aged under 26 or PhD student under 28?",
+    "STUDENT": "Student aged under 26 or PhD student under 28",
     "KIDS": "Number of Kids",
     "DISABILITY": "Disability Type",
     "DISABILITY_TYPES": {
@@ -36,17 +36,22 @@
       "THIRD_DEGREE": "Disability of Third Degree"
     },
     "ZTP": "ZTP/P Card holder",
-    "HAS_CAR": "Do you use a company car for private purposes?",
+    "HAS_CAR": "I use a company car for private purposes",
     "CAR_PRICE": "Estimated purchase price of the car",
     "MANDATORY_FIELD": "This field is mandatory",
-    "CALCULATE": "Calculate"
+    "CALCULATE": "Calculate",
+    "TOOLTIPS": {
+      "HAS_CAR": "Using a company car (also) for private purposes is considered a non-monetary income of the employee. This income is valued as 1% out of the purchasing price of the Car including VAT. This non-monetary income increases the gross salary, i.e. is also subject to tax, SS and HI."
+    }
   },
   "SALARY_DETAILS": {
     "NET_SALARY_IS": "Your net salary is: ",
     "COMPARED_TO": "compared to: ",
     "FROM_LAST_YEAR": "from last year!",
+    "SALARY_RAISE": "Your salary is {{value}} CZK higher than last year!",
     "TAX": "Tax",
     "AMOUNT": "Amount",
+    "OBSERVATION": "* The net salary may vary from your actual payslip because it may be affected by other factors and salary deductions such as meal vouchers, business trips, vacation, sick leave, etc.",
     "TOOLTIPS": {
       "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% out of the gross salary",
       "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% out of the gross salary",
