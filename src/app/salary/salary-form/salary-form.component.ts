@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { finalize, timeout } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SalaryModel } from '@app/salary/model/salary.model';
 import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
@@ -16,7 +15,9 @@ export class SalaryFormComponent implements OnInit {
   salaryForm: FormGroup;
   salary: SalaryModel;
   netSalary: number;
+  netSalary2020: number;
   salaryDetails: SalaryDetailsModel[];
+  salaryDetailsPaidByEmployer: SalaryDetailsModel[];
 
   isLoading = false;
 
@@ -25,10 +26,15 @@ export class SalaryFormComponent implements OnInit {
   ngOnInit() {
     const savedFormSalary = JSON.parse(localStorage.getItem('salaryForm'));
     const savedNetSalary = JSON.parse(localStorage.getItem('netSalary'));
+    const savedNetSalary2020 = JSON.parse(localStorage.getItem('netSalary2020'));
     const savedSalaryDetails = JSON.parse(localStorage.getItem('salaryDetails'));
+    const savedSalaryDetailsPaidByEmployer = JSON.parse(localStorage.getItem('salaryDetailsPaidByEmployer'));
+
     if (savedNetSalary && savedSalaryDetails) {
       this.netSalary = savedNetSalary;
+      this.netSalary2020 = savedNetSalary2020;
       this.salaryDetails = savedSalaryDetails;
+      this.salaryDetailsPaidByEmployer = savedSalaryDetailsPaidByEmployer;
     }
 
     this.salaryForm = this.formBuilder.group({
@@ -48,6 +54,10 @@ export class SalaryFormComponent implements OnInit {
 
   calculate() {
     this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+
     this.salary = {
       salary: this.form.salary.value,
       student: this.form.student.value,
@@ -57,12 +67,10 @@ export class SalaryFormComponent implements OnInit {
       hasCar: this.form.hasCar.value,
       priceOfCar: this.form.hasCar.value ? this.form.priceOfCar.value : 0,
     };
-    this.salaryDetails = this.buildSalaryDetails(this.salary);
     this.netSalary = SalaryCalculation.getNetSalary(this.salary);
-
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1500);
+    this.netSalary2020 = SalaryCalculation.getNetSalaryFrom2020(this.salary);
+    this.salaryDetails = this.buildSalaryDetails(this.salary);
+    this.salaryDetailsPaidByEmployer = this.buildSalaryDetailsPaidByEmployer(this.salary);
 
     this.saveDataInLocalStorage();
   }
@@ -83,11 +91,30 @@ export class SalaryFormComponent implements OnInit {
       },
       {
         taxName: TaxTypeEnum.TAX_CREDITS,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.TAX_CREDITS',
         amount: SalaryCalculation.getTaxCredit(),
       },
       {
         taxName: TaxTypeEnum.TAX_BENEFITS,
+        toolTip: 'SALARY_DETAILS.TOOLTIPS.TAX_BENEFITS',
         amount: SalaryCalculation.getTaxBenefits(salary),
+      },
+    ];
+  }
+
+  buildSalaryDetailsPaidByEmployer(salary: SalaryModel): SalaryDetailsModel[] {
+    return [
+      {
+        taxName: TaxTypeEnum.TOTAL_COST_FOR_EMPLOYER,
+        amount: SalaryCalculation.getTotalCostByEmployer(salary),
+      },
+      {
+        taxName: TaxTypeEnum.HEALTH_INSURANCE_PAID_EMPLOYER,
+        amount: SalaryCalculation.getHealthInsurancePaidByEmployer(salary),
+      },
+      {
+        taxName: TaxTypeEnum.SOCIAL_INSURANCE_PAID_EMPLOYER,
+        amount: SalaryCalculation.getSocialInsurancePaidByEmployer(salary),
       },
     ];
   }
@@ -95,6 +122,8 @@ export class SalaryFormComponent implements OnInit {
   private saveDataInLocalStorage() {
     localStorage.setItem('salaryForm', JSON.stringify(this.salary));
     localStorage.setItem('netSalary', JSON.stringify(this.netSalary));
+    localStorage.setItem('netSalary2020', JSON.stringify(this.netSalary2020));
     localStorage.setItem('salaryDetails', JSON.stringify(this.salaryDetails));
+    localStorage.setItem('salaryDetailsPaidByEmployer', JSON.stringify(this.salaryDetailsPaidByEmployer));
   }
 }

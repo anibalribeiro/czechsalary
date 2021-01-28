@@ -1,4 +1,4 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -9,6 +9,10 @@ import { CoreModule } from '@core';
 import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
 import { HomeComponent } from './home.component';
+import { SalaryFormComponent } from '@app/salary/salary-form/salary-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { SalaryDetailsComponent } from '@app/salary/salary-details/salary-details.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -26,8 +30,11 @@ describe('HomeComponent', () => {
           CoreModule,
           SharedModule,
           HttpClientTestingModule,
+          FormsModule,
+          ReactiveFormsModule,
+          TranslateModule.forRoot(),
         ],
-        declarations: [HomeComponent],
+        declarations: [HomeComponent, SalaryFormComponent, SalaryDetailsComponent],
       }).compileComponents();
     })
   );

@@ -71,14 +71,18 @@
           SALARY_FORM.MANDATORY_FIELD
         </mat-error>
       </mat-form-field>
-      <button mat-raised-button color="primary" [disabled]="salaryForm.invalid" (click)="calculate()">Calculate</button>
+      <button (click)="calculate()" [disabled]="salaryForm.invalid" color="primary" mat-raised-button>
+        {{ 'SALARY_FORM.CALCULATE' | translate }}
+      </button>
     </form>
   </div>
   <div fxFlex="60%" class="salary-details-container">
     <app-loader [isLoading]="isLoading" size="1.5"></app-loader>
     <salary-details
-      *ngIf="salaryDetails && netSalary"
+      *ngIf="!isLoading && salaryDetails"
       [netSalary]="netSalary"
+      [netSalary2020]="netSalary2020"
+      [salaryDetailsPaidEmployer]="salaryDetailsPaidByEmployer"
       [salaryDetails]="salaryDetails"
     ></salary-details>
   </div>

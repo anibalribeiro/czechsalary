@@ -1,46 +1,56 @@
 {
-  "APP_NAME": "Czech Salary",
+  "APP_NAME": "Czech Salary 2021",
   "ABOUT": "About",
   "HOME": "Home",
-  "FREELANCER": "Freelancer Salary Calculation",
+  "FREELANCER": "Calculate Freelancer's net income",
   "VERSION": "Version",
   "LANGUAGES": {
     "ENGLISH": "English",
-    "CZECH": "Czech"
+    "CZECH": "Česky"
   },
-  "HEADER_1": "Calculation of net wages of employees in Czech Republic.",
-  "HEADER_2": "According to the tax package for 2021 approved by the Senate of the Parliament of the Czech Republic and the Chamber of Deputies on 22 December 2020.",
+  "HEADER_1": "Calculation of net salary in Czech Republic - 2021",
+  "HEADER_2": "Due to the Income Tax Act amendment effective from 1.1.2021, so called „super gross salary“ was abolished and the general tax credit was increased from 2030 to 2320 CZK.\nThis leads to increasing of net wages of employees.<br/>There are now two tax rates : 15% the standard rate and progressive rate of 23% which applies on gross income exceeding 141k CZK.<br/><b>Calculate how much more you will be getting from January 20210!\uD83E\uDD11</b>",
   "ABOUT_PAGE": {
-    "DESCRIPTION_ANIBAL": "I've decided to create this application because the current solutions are or in Czech language only or they are not updated with the new law.",
-    "DESCRIPTION_DENISA": ""
+    "DESCRIPTION_ANIBAL": "As a foreign living in Czech Republic, when trying to search for information in English about how much would be my net income, I couldn't find any updated tool. So, I've decided to create this application according to the most recent tax law hoping to help everyone with the same problem.",
+    "DESCRIPTION_DENISA": "I contributed to this application by my knowledge of the Czech Taxation. We believe this might be useful for expats or other foreigners who are usually not given enough information in this matter and they are hard to be found in English."
   },
   "TAX_TYPE": {
     "HEALTH_INSURANCE_PAID_EMPLOYEE": "Health Insurance Paid by the Employee",
-    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "",
-    "PERSONAL_INCOME_TAX": "",
-    "TAX_CREDITS": "",
-    "TAX_BENEFITS": ""
+    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "Social Insurance Paid by the Employee",
+    "PERSONAL_INCOME_TAX": "Personal Income Tax",
+    "TAX_CREDITS": "General Tax Credit",
+    "TAX_BENEFITS": "Other Tax Credits",
+    "TOTAL_COST_FOR_EMPLOYER": "Total Cost for the Employer",
+    "HEALTH_INSURANCE_PAID_EMPLOYER": "Health Insurance Paid by the Employer",
+    "SOCIAL_INSURANCE_PAID_EMPLOYER": "Social Insurance Paid by the Employer"
   },
   "SALARY_FORM": {
     "SALARY": "Your gross salary in CZK (Monthly)",
-    "STUDENT": "Are you a student aged under 26?",
+    "STUDENT": "Student aged under 26 or PhD student under 28?",
     "KIDS": "Number of Kids",
     "DISABILITY": "Disability Type",
     "DISABILITY_TYPES": {
       "NONE": "None",
-      "FIRST_DEGREE": "FIRST_DEGREE",
-      "SECOND_DEGREE": "SECOND_DEGREE",
-      "THIRD_DEGREE": "THIRD_DEGREE"
+      "FIRST_DEGREE": "Disability of First Degree",
+      "SECOND_DEGREE": "Disability of Second Degree",
+      "THIRD_DEGREE": "Disability of Third Degree"
     },
-    "ZTP": "ZTP",
-    "HAS_CAR": "Do you have a car?",
-    "CAR_PRICE": "Car price",
-    "MANDATORY_FIELD": "This field is mandatory"
+    "ZTP": "ZTP/P Card holder",
+    "HAS_CAR": "Do you use a company car for private purposes?",
+    "CAR_PRICE": "Estimated purchase price of the car",
+    "MANDATORY_FIELD": "This field is mandatory",
+    "CALCULATE": "Calculate"
   },
   "SALARY_DETAILS": {
     "NET_SALARY_IS": "Your net salary is: ",
     "COMPARED_TO": "compared to: ",
-    "FROM_LAST_YEAR": "from last year!"
+    "FROM_LAST_YEAR": "from last year!",
+    "TAX": "Tax",
+    "AMOUNT": "Amount",
+    "TOOLTIPS": {
+      "TAX_CREDITS": "Assuming you signed the \"pink declaration\"",
+      "TAX_BENEFITS": "Student, Children, Disability, ZTP"
+    }
   },
   "FREELANCER_PAGE": {
     "COMING_SOON": "Coming soon..."

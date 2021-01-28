@@ -1,11 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 
 import { I18nService } from './i18n.service';
 
 const defaultLanguage = 'en-US';
-const supportedLanguages = ['eo', 'en-US', 'fr-FR'];
+const supportedLanguages = [
+  { name: 'SOMETHING', code: 'eo', icon: '' },
+  { name: 'CZECH', code: 'cs-CZ', icon: '' },
+  { name: 'ENGLISH', code: 'en-US', icon: '' },
+];
 
 class MockTranslateService {
   currentLang = '';
@@ -88,19 +92,6 @@ describe('I18nService', () => {
       // Assert
       expect(translateService.use).toHaveBeenCalledWith(newLanguage);
       expect(onLangChangeSpy).toHaveBeenCalledWith(newLanguage);
-    });
-
-    it('should change current language without a region match', () => {
-      // Arrange
-      const newLanguage = 'fr-CA';
-      i18nService.init(defaultLanguage, supportedLanguages);
-
-      // Act
-      i18nService.language = newLanguage;
-
-      // Assert
-      expect(translateService.use).toHaveBeenCalledWith('fr-FR');
-      expect(onLangChangeSpy).toHaveBeenCalledWith('fr-FR');
     });
 
     it('should change current language to default if unsupported', () => {

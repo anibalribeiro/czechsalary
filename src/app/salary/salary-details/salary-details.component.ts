@@ -1,8 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { catchError, finalize, map, take } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SalaryModel } from '@app/salary/model/salary.model';
-import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
+import { catchError, take } from 'rxjs/operators';
 import { SalaryDetailsModel } from '@app/salary/model/salary-details.model';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';
@@ -15,7 +12,9 @@ import * as _ from 'lodash';
 })
 export class SalaryDetailsComponent implements OnInit {
   @Input() netSalary: number;
+  @Input() netSalary2020: number;
   @Input() salaryDetails: SalaryDetailsModel[];
+  @Input() salaryDetailsPaidEmployer: SalaryDetailsModel[];
 
   netSalaryEur: number;
   netSalaryUsd: number;

@@ -1,35 +1,58 @@
 {
-  "APP_NAME": "Czech Salary",
-  "ABOUT": "About",
-  "HOME": "Home",
-  "FREELANCER": "Freelancer Salary Calculation",
-  "VERSION": "Version",
+  "APP_NAME": "Český plat 2021",
+  "ABOUT": "O webu",
+  "HOME": "Domů",
+  "FREELANCER": "Výpočet čistého příjmu živnostníků",
+  "VERSION": "Verze",
   "LANGUAGES": {
-    "ENGLISH": "Anglictina",
+    "ENGLISH": "Anglicky",
     "CZECH": "Cesky"
   },
-  "HEADER_1": "Calculation of net wages of employees in Czech Republic.",
-  "HEADER_2": "According to the tax package for 2021 approved by the Senate of the Parliament of the Czech Republic and the Chamber of Deputies on 22 December 2020.",
+  "HEADER_1": "Kalkulačka čisté mzdy - 2021",
+  "HEADER_2": "V důsledku novely zákona o daních z příjmů s účinností od 1.1.2021 došlo ke zrušení tzv. super hrubé mzdy a navýšení základní slevy na poplatníka z 2030 Kč na 2320 Kč. To se projeví navýšením čisté mzdy zaměstnanců.<br/>Od roku 2021 existují 2 sazby daně: 15% základní a 23% progresivní, která se uplatní na hrubé příjmy převyšující 141 tis. Kč.<br/><b>Spočítejte si, o kolik si přilepšíte od ledna 2021.\uD83E\uDD11</b>",
+  "ABOUT_PAGE": {
+    "DESCRIPTION_ANIBAL": "Jsem cizincem žijícím v České republice. Když jsem se snažil najít informace v Angličtině, o tom kolik by byla moje čistá mzda, nemohl jsem najít žádnou updatovanou kalkulačku. Proto jsem se rozhodl vytvořit tuhle aplikaci podle nenjnovějších daňových zákonů. Doufáme, že pomůže všem se stejným problémem.",
+    "DESCRIPTION_DENISA": "Do této aplikace jsem přispěla svou znalostí českého zdanění. Věříme, že obsah může být nápomocný expatům a cizincům, kterým se většinou nedostane mnoho infomrací ohledně jejich zdanění a přitom je těžké si takové informace vyhledat v Angličtině."
+  },
   "TAX_TYPE": {
-    "PAYROLL_COSTS": "Payroll Costs"
+    "HEALTH_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
+    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
+    "PERSONAL_INCOME_TAX": "Daň z příjmů - záloha",
+    "TAX_CREDITS": "Sleva na poplatníka",
+    "TAX_BENEFITS": "Další slevy/daňové zvýhodnění",
+    "TOTAL_COST_FOR_EMPLOYER": "Celkový mzdový náklad zaměstnavatele",
+    "HEALTH_INSURANCE_PAID_EMPLOYER": "Zdravotní pojištění hrazené zaměstnavatelem",
+    "SOCIAL_INSURANCE_PAID_EMPLOYER": "Sociální pojištění hrazené zaměstnavatelem"
   },
   "SALARY_FORM": {
-    "SALARY": "Your gross salary in CZK (Monthly)",
-    "STUDENT": "Are you a student aged under 26?",
-    "KIDS": "Number of Kids",
-    "DISABILITY": "Disability Type",
+    "SALARY": "Měsíční hrubá mzda v Kč",
+    "STUDENT": "Student do 26 let (PhD do 28 let)",
+    "KIDS": "Počet dětí",
+    "DISABILITY": "Invalidita",
     "DISABILITY_TYPES": {
-      "NONE": "None",
-      "FIRST_DEGREE": "FIRST_DEGREE",
-      "SECOND_DEGREE": "SECOND_DEGREE",
-      "THIRD_DEGREE": "THIRD_DEGREE"
+      "NONE": "Žádný",
+      "FIRST_DEGREE": "Invalidita 1. stupně",
+      "SECOND_DEGREE": "Invalidita 2. stupně",
+      "THIRD_DEGREE": "Invalidita 3. stupně"
     },
-    "ZTP": "ZTP",
-    "HAS_CAR": "Do you have a car?",
-    "CAR_PRICE": "Car price",
-    "MANDATORY_FIELD": "This field is mandatory"
+    "ZTP": "Jsem držitelem průkazu ZTP",
+    "HAS_CAR": "Používáte služební auto i k soukromým účelům?",
+    "CAR_PRICE": "Odhadovaná pořizovací cena auta",
+    "MANDATORY_FIELD": "Toto pole je povinné",
+    "CALCULATE": "Spočítat čistou mzdu"
+  },
+  "SALARY_DETAILS": {
+    "NET_SALARY_IS": "Vaše čistá měsíční mzda v roce 2021: ",
+    "COMPARED_TO": "v porovnání s 2020: ",
+    "FROM_LAST_YEAR": "",
+    "TAX": "Položka",
+    "AMOUNT": "Částka",
+    "TOOLTIPS": {
+      "TAX_CREDITS": "Sleva na poplatíka (podepsané \"růžové\" prohlášení)",
+      "TAX_BENEFITS": "Ostatní slevy (Student, Děti, Invalidita, ZTP)"
+    }
   },
   "FREELANCER_PAGE": {
-    "COMING_SOON": "Coming soon..."
+    "COMING_SOON": "Již brzy…"
   }
 }

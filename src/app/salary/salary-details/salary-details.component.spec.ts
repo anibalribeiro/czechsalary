@@ -1,18 +1,14 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterTestingModule } from '@angular/router/testing';
-import { Angulartics2Module } from 'angulartics2';
-
-import { CoreModule } from '@core';
-import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
-import { HomeComponent } from './home.component';
+import { SalaryDetailsComponent } from '@app/salary/salary-details/salary-details.component';
+import { TranslateModule } from '@ngx-translate/core';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('SalaryDetailsComponent', () => {
+  let component: SalaryDetailsComponent;
+  let fixture: ComponentFixture<SalaryDetailsComponent>;
 
   beforeEach(
     waitForAsync(() => {
@@ -21,19 +17,16 @@ describe('HomeComponent', () => {
           BrowserAnimationsModule,
           FlexLayoutModule,
           MaterialModule,
-          RouterTestingModule,
-          Angulartics2Module.forRoot(),
-          CoreModule,
-          SharedModule,
           HttpClientTestingModule,
+          TranslateModule.forRoot(),
         ],
-        declarations: [HomeComponent],
+        declarations: [SalaryDetailsComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(SalaryDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

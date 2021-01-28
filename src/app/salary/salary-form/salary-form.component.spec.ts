@@ -1,18 +1,18 @@
-import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { RouterTestingModule } from '@angular/router/testing';
-import { Angulartics2Module } from 'angulartics2';
-
-import { CoreModule } from '@core';
-import { SharedModule } from '@shared';
 import { MaterialModule } from '@app/material.module';
-import { HomeComponent } from './home.component';
+import { SalaryFormComponent } from '@app/salary/salary-form/salary-form.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '@shared';
+import { CoreModule } from '@core';
+import { Angulartics2Module } from 'angulartics2';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SalaryDetailsComponent } from '@app/salary/salary-details/salary-details.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('SalaryFormComponent', () => {
+  let component: SalaryFormComponent;
+  let fixture: ComponentFixture<SalaryFormComponent>;
 
   beforeEach(
     waitForAsync(() => {
@@ -21,19 +21,20 @@ describe('HomeComponent', () => {
           BrowserAnimationsModule,
           FlexLayoutModule,
           MaterialModule,
-          RouterTestingModule,
           Angulartics2Module.forRoot(),
           CoreModule,
           SharedModule,
-          HttpClientTestingModule,
+          TranslateModule.forRoot(),
+          FormsModule,
+          ReactiveFormsModule,
         ],
-        declarations: [HomeComponent],
+        declarations: [SalaryFormComponent, SalaryDetailsComponent],
       }).compileComponents();
     })
   );
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(SalaryFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
