@@ -28,7 +28,8 @@
               "src/apple-touch-icon.png",
               "src/robots.txt",
               "src/manifest.webmanifest",
-              "src/assets"
+              "src/assets",
+              "src/_redirects"
             ],
             "styles": ["src/main.scss"],
             "scripts": []
