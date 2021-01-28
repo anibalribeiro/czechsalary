@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SalaryModel } from '@app/salary/model/salary.model';
 import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
@@ -10,6 +10,7 @@ import SalaryCalculation from '@app/salary/salary-calculation';
   selector: 'salary-form',
   templateUrl: './salary-form.component.html',
   styleUrls: ['./salary-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SalaryFormComponent implements OnInit {
   salaryForm: FormGroup;
@@ -21,7 +22,7 @@ export class SalaryFormComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     const savedFormSalary = JSON.parse(localStorage.getItem('salaryForm'));
@@ -56,7 +57,8 @@ export class SalaryFormComponent implements OnInit {
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
-    }, 1500);
+      this.cdr.markForCheck();
+    }, 1000);
 
     this.salary = {
       salary: this.form.salary.value,
