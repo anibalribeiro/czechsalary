@@ -5,6 +5,7 @@
       #tooltip="matTooltip"
       [matTooltip]="'SALARY_DETAILS.SALARY_RAISE' | translate: { value: netSalary - netSalary2020 | number: '1.0-0' }"
       [matTooltipClass]="'tooltip'"
+      (click)="tooltip.toggle()"
     >
       {{ 'SALARY_DETAILS.NET_SALARY_IS' | translate }}<b class="net-salary">{{ netSalary | number: '1.0-0' }} CZK</b>
       {{ 'SALARY_DETAILS.COMPARED_TO' | translate
@@ -63,6 +64,7 @@
             #tooltip="matTooltip"
             [matTooltip]="element.toolTip | translate"
             [matTooltipClass]="'tooltip'"
+            (click)="tooltip.toggle()"
           >
             help
           </mat-icon>
@@ -91,6 +93,7 @@
             #tooltip="matTooltip"
             [matTooltip]="element.toolTip | translate"
             [matTooltipClass]="'tooltip'"
+            (click)="tooltip.toggle()"
           >
             help
           </mat-icon>

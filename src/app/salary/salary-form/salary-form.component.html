@@ -52,6 +52,7 @@
           #tooltip="matTooltip"
           [matTooltip]="'SALARY_FORM.TOOLTIPS.HAS_CAR' | translate"
           [matTooltipClass]="'tooltip'"
+          (click)="tooltip.toggle()"
         >
           help
         </mat-icon>

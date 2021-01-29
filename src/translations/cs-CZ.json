@@ -16,7 +16,7 @@
   },
   "TAX_TYPE": {
     "HEALTH_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
-    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "Zdravotní pojištění hrazené zaměstnancem",
+    "SOCIAL_INSURANCE_PAID_EMPLOYEE": "Sociální pojištění hrazené zaměstnancem",
     "PERSONAL_INCOME_TAX": "Daň z příjmů - záloha",
     "TAX_CREDITS": "Sleva na poplatníka",
     "TAX_BENEFITS": "Další slevy/daňové zvýhodnění",
