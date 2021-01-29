@@ -56,7 +56,7 @@
       "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% out of the gross salary",
       "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% out of the gross salary",
       "PERSONAL_INCOME_TAX": "15% out of the gross salary and car benefit; 23% on income exceeding CZK 141 764",
-      "TAX_CREDITS": "This declaration you can sign only at one employer at the time. You basically declare that you are a Czech Income tax payer and that you signed it only with one employer (if you change your job you can sign with a new employer). This allows you to apply the tax credit of  CZK 2320 /month.",
+      "TAX_CREDITS": "(Assuming you signed the \"pink declaration\" (Prohlášení poplatníka daně z příjmů). This declaration you can sign only at one employer at the time. You basically declare that you are a Czech Income tax payer and that you signed it only with one employer (if you change your job you can sign with a new employer). This allows you to apply the tax credit of  CZK 2320 /month.",
       "TAX_BENEFITS": "Student, Children, Disability, ZTP",
       "TOTAL_COST_FOR_EMPLOYER": "This is how much you \"cost\" your employer per month",
       "HEALTH_INSURANCE_PAID_EMPLOYER": "9% out of the gross salary",
