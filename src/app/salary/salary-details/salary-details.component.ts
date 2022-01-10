@@ -16,15 +16,18 @@ export class SalaryDetailsComponent {
   @Input() salaryDetails: SalaryDetailsModel[];
   @Input() salaryDetailsPaidEmployer: SalaryDetailsModel[];
 
-  salaries$ = this.httpClient.get('latest?base=CZK&symbols=USD,GBP,EUR').pipe(
-    take(1),
-    map((data) => ({
-      eurSalary: this.netSalary * _.get(data, 'rates.EUR', 1),
-      usdSalary: this.netSalary * _.get(data, 'rates.USD', 1),
-      gbpSalary: this.netSalary * _.get(data, 'rates.GBP', 1),
-    })),
-    catchError(() => of('Error, could not load conversion :-('))
-  );
+  // from https://github.com/fawazahmed0/currency-api
+  salaries$ = this.httpClient
+    .get('https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/czk.json')
+    .pipe(
+      take(1),
+      map((data) => ({
+        eurSalary: this.netSalary * _.get(data, 'czk.eur', 1),
+        usdSalary: this.netSalary * _.get(data, 'czk.usd', 1),
+        gbpSalary: this.netSalary * _.get(data, 'czk.gbp', 1),
+      })),
+      catchError(() => of('Error, could not load conversion :-('))
+    );
 
   constructor(private httpClient: HttpClient) {}
 }
