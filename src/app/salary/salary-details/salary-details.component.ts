@@ -12,7 +12,7 @@ import * as _ from 'lodash';
 })
 export class SalaryDetailsComponent {
   @Input() netSalary: number;
-  @Input() netSalary2020: number;
+  @Input() netSalary2021: number;
   @Input() salaryDetails: SalaryDetailsModel[];
   @Input() salaryDetailsPaidEmployer: SalaryDetailsModel[];
 

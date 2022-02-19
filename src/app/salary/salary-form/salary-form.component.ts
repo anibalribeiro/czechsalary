@@ -4,6 +4,7 @@ import { SalaryModel } from '@app/salary/model/salary.model';
 import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
 import { SalaryDetailsModel } from '@app/salary/model/salary-details.model';
 import { TaxTypeEnum } from '@app/salary/model/taxType.enum';
+import { TaxYear } from '@app/salary/model/taxYear.enum';
 import SalaryCalculation from '@app/salary/salary-calculation';
 
 @Component({
@@ -16,7 +17,7 @@ export class SalaryFormComponent implements OnInit {
   salaryForm: FormGroup;
   salary: SalaryModel;
   netSalary: number;
-  netSalary2020: number;
+  netSalary2021: number;
   salaryDetails: SalaryDetailsModel[];
   salaryDetailsPaidByEmployer: SalaryDetailsModel[];
 
@@ -26,14 +27,14 @@ export class SalaryFormComponent implements OnInit {
 
   ngOnInit() {
     const savedFormSalary = JSON.parse(localStorage.getItem('salaryForm'));
-    const savedNetSalary = JSON.parse(localStorage.getItem('netSalary'));
-    const savedNetSalary2020 = JSON.parse(localStorage.getItem('netSalary2020'));
+    const savedNetSalary2022 = JSON.parse(localStorage.getItem('netSalary2022'));
+    const savedNetSalary2021 = JSON.parse(localStorage.getItem('netSalary2021'));
     const savedSalaryDetails = JSON.parse(localStorage.getItem('salaryDetails'));
     const savedSalaryDetailsPaidByEmployer = JSON.parse(localStorage.getItem('salaryDetailsPaidByEmployer'));
 
-    if (savedNetSalary && savedSalaryDetails) {
-      this.netSalary = savedNetSalary;
-      this.netSalary2020 = savedNetSalary2020;
+    if (savedNetSalary2022 && savedSalaryDetails) {
+      this.netSalary = savedNetSalary2022;
+      this.netSalary2021 = savedNetSalary2021;
       this.salaryDetails = savedSalaryDetails;
       this.salaryDetailsPaidByEmployer = savedSalaryDetailsPaidByEmployer;
     }
@@ -69,8 +70,8 @@ export class SalaryFormComponent implements OnInit {
       hasCar: this.form.hasCar.value,
       priceOfCar: this.form.hasCar.value ? this.form.priceOfCar.value : 0,
     };
-    this.netSalary = SalaryCalculation.getNetSalary(this.salary);
-    this.netSalary2020 = SalaryCalculation.getNetSalaryFrom2020(this.salary);
+    this.netSalary = SalaryCalculation.getNetSalary(this.salary, TaxYear.Current);
+    this.netSalary2021 = SalaryCalculation.getNetSalary(this.salary, TaxYear.Previous);
     this.salaryDetails = this.buildSalaryDetails(this.salary);
     this.salaryDetailsPaidByEmployer = this.buildSalaryDetailsPaidByEmployer(this.salary);
 
@@ -92,17 +93,17 @@ export class SalaryFormComponent implements OnInit {
       {
         taxName: TaxTypeEnum.PERSONAL_INCOME_TAX,
         toolTip: 'SALARY_DETAILS.TOOLTIPS.PERSONAL_INCOME_TAX',
-        amount: SalaryCalculation.getPersonalIncomeTax(salary),
+        amount: SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current),
       },
       {
         taxName: TaxTypeEnum.TAX_CREDITS,
         toolTip: 'SALARY_DETAILS.TOOLTIPS.TAX_CREDITS',
-        amount: SalaryCalculation.getTaxCredit(),
+        amount: SalaryCalculation.getTaxCredit(TaxYear.Current),
       },
       {
         taxName: TaxTypeEnum.TAX_BENEFITS,
         toolTip: 'SALARY_DETAILS.TOOLTIPS.TAX_BENEFITS',
-        amount: SalaryCalculation.getTaxBenefits(salary),
+        amount: SalaryCalculation.getTaxBenefits(salary, TaxYear.Current),
       },
     ];
   }
@@ -129,8 +130,8 @@ export class SalaryFormComponent implements OnInit {
 
   private saveDataInLocalStorage() {
     localStorage.setItem('salaryForm', JSON.stringify(this.salary));
-    localStorage.setItem('netSalary', JSON.stringify(this.netSalary));
-    localStorage.setItem('netSalary2020', JSON.stringify(this.netSalary2020));
+    localStorage.setItem('netSalary2022', JSON.stringify(this.netSalary));
+    localStorage.setItem('netSalary2021', JSON.stringify(this.netSalary2021));
     localStorage.setItem('salaryDetails', JSON.stringify(this.salaryDetails));
     localStorage.setItem('salaryDetailsPaidByEmployer', JSON.stringify(this.salaryDetailsPaidByEmployer));
   }
