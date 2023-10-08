@@ -1,15 +1,17 @@
 import { SalaryModel } from '@app/salary/model/salary.model';
 import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
+import { TaxYear } from '@app/salary/model/taxYear.enum';
 
 export default class SalaryCalculation {
-  static AVERAGE_SALARY_TIMES_4 = 141764;
-  static AVERAGE_SALARY_TIMES_4_2020 = 139340;
+  static AVERAGE_SALARY_TIMES_4_PREV = 141764;
+  static AVERAGE_SALARY_TIMES_4_CURR = 155644;
+  static TAX_CREDIT_PREV = 2320;
+  static TAX_CREDIT_CURR = 2570;
+
   static HEALTH_INSURANCE = 0.045;
   static SOCIAL_INSURANCE = 0.065;
   static PERSONAL_INCOME_TAX_15 = 0.15;
   static PERSONAL_INCOME_TAX_23 = 0.23;
-  static TAX_CREDIT = 2320;
-  static TAX_CREDIT_2020 = 2070;
 
   static HEALTH_INSURANCE_EMPLOYER = 0.09;
   static SOCIAL_INSURANCE_EMPLOYER = 0.248;
@@ -21,10 +23,51 @@ export default class SalaryCalculation {
   static ZTP = 1345;
   static FIRST_SECOND_DEGREE = 210;
   static THIRD_DEGREE = 420;
+
   static ONE_KID = 1267;
-  static TWO_KIDS = 2884;
-  static THREE_KIDS = 4901;
-  static FOUR_KIDS = 6918;
+  static TWO_KIDS_PREV = 2884;
+  static TWO_KIDS_CURR = 3127;
+  static THREE_KIDS_PREV = 4901;
+  static THREE_KIDS_CURR = 5447;
+  static FOUR_KIDS_PREV = 6918;
+  static FOUR_KIDS_CURR = 7767;
+
+  static getNetSalary(salaryModel: SalaryModel, taxYear: TaxYear): number {
+    return (
+      salaryModel.salary -
+      this.getPersonalIncomeTax(salaryModel, taxYear) +
+      this.getTaxCredit(taxYear) +
+      this.getTaxBenefits(salaryModel, taxYear) -
+      this.getHealthInsurancePaidByEmployee(salaryModel) -
+      this.getSocialInsurancePaidByEmployee(salaryModel)
+    );
+  }
+
+  static getPersonalIncomeTax(salaryModel: SalaryModel, taxYear: TaxYear): number {
+    const salaryThreshold =
+      taxYear === TaxYear.Current ? this.AVERAGE_SALARY_TIMES_4_CURR : this.AVERAGE_SALARY_TIMES_4_PREV;
+    if (salaryModel.salary < salaryThreshold) {
+      return this.getGrossSalaryWithCar(salaryModel) * this.PERSONAL_INCOME_TAX_15;
+    } else {
+      return (
+        (salaryModel.salary - salaryThreshold) * this.PERSONAL_INCOME_TAX_23 +
+        salaryThreshold * this.PERSONAL_INCOME_TAX_15 +
+        this.getCarPrice(salaryModel) * this.PERSONAL_INCOME_TAX_15
+      );
+    }
+  }
+
+  static getTaxCredit(taxYear: TaxYear): number {
+    return taxYear === TaxYear.Current ? this.TAX_CREDIT_CURR : this.TAX_CREDIT_PREV;
+  }
+
+  static getHealthInsurancePaidByEmployee(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.HEALTH_INSURANCE;
+  }
+
+  static getSocialInsurancePaidByEmployee(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.SOCIAL_INSURANCE;
+  }
 
   static getGrossSalaryWithCar(salaryModel: SalaryModel): number {
     if (salaryModel.hasCar && salaryModel.priceOfCar) {
@@ -40,31 +83,7 @@ export default class SalaryCalculation {
     return 0;
   }
 
-  static getHealthInsurancePaidByEmployee(salaryModel: SalaryModel): number {
-    return this.getGrossSalaryWithCar(salaryModel) * this.HEALTH_INSURANCE;
-  }
-
-  static getSocialInsurancePaidByEmployee(salaryModel: SalaryModel): number {
-    return this.getGrossSalaryWithCar(salaryModel) * this.SOCIAL_INSURANCE;
-  }
-
-  static getPersonalIncomeTax(salaryModel: SalaryModel): number {
-    if (salaryModel.salary < this.AVERAGE_SALARY_TIMES_4) {
-      return this.getGrossSalaryWithCar(salaryModel) * this.PERSONAL_INCOME_TAX_15;
-    } else {
-      return (
-        (salaryModel.salary - this.AVERAGE_SALARY_TIMES_4) * this.PERSONAL_INCOME_TAX_23 +
-        this.AVERAGE_SALARY_TIMES_4 * this.PERSONAL_INCOME_TAX_15 +
-        this.getCarPrice(salaryModel) * this.PERSONAL_INCOME_TAX_15
-      );
-    }
-  }
-
-  static getTaxCredit(): number {
-    return this.TAX_CREDIT;
-  }
-
-  static getTaxBenefits(salaryModel: SalaryModel): number {
+  static getTaxBenefits(salaryModel: SalaryModel, taxYear: TaxYear): number {
     let sumBenefits = 0;
     if (salaryModel.student) {
       sumBenefits += this.STUDENT;
@@ -87,38 +106,19 @@ export default class SalaryCalculation {
         break;
       }
       case 2: {
-        sumBenefits += this.TWO_KIDS;
+        sumBenefits += taxYear === TaxYear.Current ? this.TWO_KIDS_CURR : this.TWO_KIDS_PREV;
         break;
       }
       case 3: {
-        sumBenefits += this.THREE_KIDS;
+        sumBenefits += taxYear === TaxYear.Current ? this.THREE_KIDS_CURR : this.THREE_KIDS_PREV;
         break;
       }
       case 4: {
-        sumBenefits += this.FOUR_KIDS;
+        sumBenefits += taxYear === TaxYear.Current ? this.FOUR_KIDS_CURR : this.FOUR_KIDS_PREV;
         break;
       }
     }
     return sumBenefits;
-  }
-
-  static getNetSalary(salaryModel: SalaryModel): number {
-    return (
-      salaryModel.salary -
-      this.getHealthInsurancePaidByEmployee(salaryModel) -
-      this.getSocialInsurancePaidByEmployee(salaryModel) -
-      this.getPersonalIncomeTax(salaryModel) +
-      this.getTaxCredit() +
-      this.getTaxBenefits(salaryModel)
-    );
-  }
-
-  static getHealthInsurancePaidByEmployer(salaryModel: SalaryModel): number {
-    return this.getGrossSalaryWithCar(salaryModel) * this.HEALTH_INSURANCE_EMPLOYER;
-  }
-
-  static getSocialInsurancePaidByEmployer(salaryModel: SalaryModel): number {
-    return this.getGrossSalaryWithCar(salaryModel) * this.SOCIAL_INSURANCE_EMPLOYER;
   }
 
   static getTotalCostByEmployer(salaryModel: SalaryModel): number {
@@ -129,35 +129,11 @@ export default class SalaryCalculation {
     );
   }
 
-  // CALCULATION OF SALARY OF 2020
-  static getSuperGrossSalary(salaryModel: SalaryModel): number {
-    return salaryModel.salary * 1.338;
+  static getHealthInsurancePaidByEmployer(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.HEALTH_INSURANCE_EMPLOYER;
   }
 
-  static getTaxCreditFrom2020(): number {
-    return this.TAX_CREDIT_2020;
-  }
-
-  static getPersonalIncomeTax2020(salaryModel: SalaryModel, superGross: number): number {
-    if (salaryModel.salary + this.getCarPrice(salaryModel) < this.AVERAGE_SALARY_TIMES_4_2020) {
-      return this.getGrossSalaryWithCar(salaryModel) * 1.338 * 0.15;
-    } else {
-      return (
-        this.getGrossSalaryWithCar(salaryModel) * 1.338 * 0.15 +
-        (this.getGrossSalaryWithCar(salaryModel) - this.AVERAGE_SALARY_TIMES_4_2020) * 0.07
-      );
-    }
-  }
-
-  static getNetSalaryFrom2020(salaryModel: SalaryModel): number {
-    const superGross = this.getSuperGrossSalary(salaryModel);
-    return (
-      salaryModel.salary -
-      this.getHealthInsurancePaidByEmployee(salaryModel) -
-      this.getSocialInsurancePaidByEmployee(salaryModel) -
-      this.getPersonalIncomeTax2020(salaryModel, superGross) +
-      this.getTaxCreditFrom2020() +
-      this.getTaxBenefits(salaryModel)
-    );
+  static getSocialInsurancePaidByEmployer(salaryModel: SalaryModel): number {
+    return this.getGrossSalaryWithCar(salaryModel) * this.SOCIAL_INSURANCE_EMPLOYER;
   }
 }

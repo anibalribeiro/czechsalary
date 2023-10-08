@@ -1,5 +1,6 @@
 import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
 import SalaryCalculation from '@app/salary/salary-calculation';
+import { TaxYear } from './model/taxYear.enum';
 
 describe('Calculate Salary', () => {
   let salary = {
@@ -13,7 +14,7 @@ describe('Calculate Salary', () => {
   };
 
   test('should calculate net salary', () => {
-    expect(SalaryCalculation.getNetSalary(salary)).toEqual(59310);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(59560);
   });
 
   test('should calculate gross salary with price of the car included', () => {
@@ -39,55 +40,63 @@ describe('Calculate Salary', () => {
 
   test('should calculate personal income tax', () => {
     salary.hasCar = true;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary)).toEqual(13275);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(13275);
     salary.hasCar = false;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary)).toEqual(12000);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(12000);
 
     salary.salary = 150000;
     salary.hasCar = true;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary)).toEqual(24433.879999999997);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(23775);
     salary.hasCar = false;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary)).toEqual(23158.879999999997);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(22500);
+
+    salary.salary = 180000;
+    salary.hasCar = true;
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(30223.48);
+    salary.hasCar = false;
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(28948.48);
   });
 
   test('should get tax credit', () => {
-    expect(SalaryCalculation.getTaxCredit()).toEqual(2320);
+    expect(SalaryCalculation.getTaxCredit(TaxYear.Current)).toEqual(2570);
   });
 
   test('should calculate tax benefits', () => {
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(0);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(0);
 
     salary.student = true;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(335);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(335);
 
     salary.student = false;
     salary.ztp = true;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(1345);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(1345);
 
     salary.ztp = false;
     salary.disabilityType = DisabilityTypeEnum.FIRST_DEGREE;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(210);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(210);
 
     salary.disabilityType = DisabilityTypeEnum.THIRD_DEGREE;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(420);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(420);
 
     salary.disabilityType = DisabilityTypeEnum.NONE;
     salary.numberOfKids = 1;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(1267);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(1267);
 
     salary.numberOfKids = 4;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(6918);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(7767);
+    salary.numberOfKids = 4;
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Previous)).toEqual(6918);
 
     salary.numberOfKids = 3;
     salary.disabilityType = DisabilityTypeEnum.FIRST_DEGREE;
     salary.ztp = true;
     salary.student = true;
-    expect(SalaryCalculation.getTaxBenefits(salary)).toEqual(6791);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(7337);
   });
 
   test('should calculate net salary without car', () => {
     salary = {
-      salary: 150000,
+      salary: 180000,
       student: false,
       numberOfKids: 0,
       disabilityType: DisabilityTypeEnum.NONE,
@@ -95,12 +104,12 @@ describe('Calculate Salary', () => {
       hasCar: false,
       priceOfCar: 0,
     };
-    expect(SalaryCalculation.getNetSalary(salary)).toEqual(112661.12);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(133821.52);
   });
 
   test('should calculate net salary with car', () => {
     salary = {
-      salary: 150000,
+      salary: 180000,
       student: false,
       numberOfKids: 0,
       disabilityType: DisabilityTypeEnum.NONE,
@@ -108,12 +117,12 @@ describe('Calculate Salary', () => {
       hasCar: true,
       priceOfCar: 850000,
     };
-    expect(SalaryCalculation.getNetSalary(salary)).toEqual(110451.12);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(131611.52);
   });
 
-  test('should calculate net salary from 2020', () => {
+  test('should calculate net salary from 2021', () => {
     salary = {
-      salary: 110000,
+      salary: 80000,
       student: false,
       numberOfKids: 0,
       disabilityType: DisabilityTypeEnum.NONE,
@@ -121,16 +130,19 @@ describe('Calculate Salary', () => {
       hasCar: false,
       priceOfCar: 0,
     };
-    expect(SalaryCalculation.getNetSalaryFrom2020(salary)).toEqual(77893);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(61520);
+
+    salary.salary = 180000;
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(132461.12);
 
     salary.salary = 150000;
-    expect(SalaryCalculation.getNetSalaryFrom2020(salary)).toEqual(104718.8);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(112661.12);
 
     salary.hasCar = true;
     salary.priceOfCar = 850000;
-    expect(SalaryCalculation.getNetSalaryFrom2020(salary)).toEqual(101482.85);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(110451.12);
 
     salary.salary = 80000;
-    expect(SalaryCalculation.getNetSalaryFrom2020(salary)).toEqual(54573.05);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(59310);
   });
 });

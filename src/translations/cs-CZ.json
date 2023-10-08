@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "Česká mzda 2021",
+  "APP_NAME": "Česká mzda 2022",
   "ABOUT": "O webu",
   "HOME": "Domů",
   "FREELANCER": "Výpočet čistého příjmu živnostníků",
@@ -8,8 +8,7 @@
     "ENGLISH": "English",
     "CZECH": "Česky"
   },
-  "HEADER_1": "Kalkulačka čisté mzdy - 2021",
-  "HEADER_2": "V důsledku novely zákona o daních z příjmů s účinností od 1.1.2021 došlo ke zrušení tzv. super hrubé mzdy a navýšení základní slevy na poplatníka z 2030 Kč na 2320 Kč. To se projeví navýšením čisté mzdy zaměstnanců.<br/>Od roku 2021 existují 2 sazby daně: 15% základní a 23% progresivní, která se uplatní na hrubé příjmy převyšující 141 tis. Kč.<br/><b>Spočítejte si, o kolik si přilepšíte od ledna 2021.\uD83E\uDD11</b>",
+  "HEADER_1": "Kalkulačka čisté mzdy - 2022",
   "ABOUT_PAGE": {
     "DESCRIPTION_ANIBAL": "Jsem cizincem žijícím v České republice. Když jsem se snažil najít informace v Angličtině, o tom kolik by byla moje čistá mzda, nemohl jsem najít žádnou updatovanou kalkulačku. Proto jsem se rozhodl vytvořit tuhle aplikaci podle nenjnovějších daňových zákonů. Doufáme, že pomůže všem se stejným problémem.",
     "DESCRIPTION_DENISA": "Do této aplikace jsem přispěla svou znalostí českého zdanění. Věříme, že obsah může být nápomocný expatům a cizincům, kterým se většinou nedostane mnoho infomrací ohledně jejich zdanění a přitom je těžké si takové informace vyhledat v Angličtině."
@@ -55,8 +54,8 @@
     "TOOLTIPS": {
       "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% z hrubého příjmu",
       "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% z hrubého příjmu",
-      "PERSONAL_INCOME_TAX": "15% z hrubého příjmu a nepežního příjmu z auta; 23% z hrubých příjmů přesahující 141 764 CZK",
-      "TAX_CREDITS": "Předpokládá se, že jste podepsal/a \"růžové Prohlášení\". Toto Prohlášení může být současně podepsáno pouze u jednoho zaměstnavatele. Prohlášením v podstatě prohlašujete, že jste poplatníkem daně z příjmů fyz. osob, a že jste prohlášení podepsal/a jen u jednoho zaměstnavatele v daný měsíc. Při změně zaměstnání lze prohlášení podepsat u nového zaměstnavatele. Toto opravňuje ke slevě na poplatníka ve výši 2320 Kč/měsíc",
+      "PERSONAL_INCOME_TAX": "15% z hrubého příjmu a nepežního příjmu z auta; 23% z hrubých příjmů přesahující 155 644 CZK",
+      "TAX_CREDITS": "Předpokládá se, že jste podepsal/a \"růžové Prohlášení\". Toto Prohlášení může být současně podepsáno pouze u jednoho zaměstnavatele. Prohlášením v podstatě prohlašujete, že jste poplatníkem daně z příjmů fyz. osob, a že jste prohlášení podepsal/a jen u jednoho zaměstnavatele v daný měsíc. Při změně zaměstnání lze prohlášení podepsat u nového zaměstnavatele. Toto opravňuje ke slevě na poplatníka ve výši 2570 Kč/měsíc",
       "TAX_BENEFITS": "Ostatní slevy (Student, Děti, Invalidita, ZTP)",
       "TOTAL_COST_FOR_EMPLOYER": "Toto je výše nákladu vašeho zaměstnavatele na vaše zaměstnání",
       "HEALTH_INSURANCE_PAID_EMPLOYER": "9% z hrubého příjmu",
