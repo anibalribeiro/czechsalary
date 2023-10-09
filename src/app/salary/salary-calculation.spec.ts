@@ -52,9 +52,9 @@ describe('Calculate Salary', () => {
 
     salary.salary = 180000;
     salary.hasCar = true;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(30223.48);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(29771.32);
     salary.hasCar = false;
-    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(28948.48);
+    expect(SalaryCalculation.getPersonalIncomeTax(salary, TaxYear.Current)).toEqual(28496.32);
   });
 
   test('should get tax credit', () => {
@@ -85,7 +85,7 @@ describe('Calculate Salary', () => {
     salary.numberOfKids = 4;
     expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Current)).toEqual(7767);
     salary.numberOfKids = 4;
-    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Previous)).toEqual(6918);
+    expect(SalaryCalculation.getTaxBenefits(salary, TaxYear.Previous)).toEqual(7767);
 
     salary.numberOfKids = 3;
     salary.disabilityType = DisabilityTypeEnum.FIRST_DEGREE;
@@ -104,7 +104,7 @@ describe('Calculate Salary', () => {
       hasCar: false,
       priceOfCar: 0,
     };
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(133821.52);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(134273.68);
   });
 
   test('should calculate net salary with car', () => {
@@ -117,10 +117,10 @@ describe('Calculate Salary', () => {
       hasCar: true,
       priceOfCar: 850000,
     };
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(131611.52);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Current)).toEqual(132063.68);
   });
 
-  test('should calculate net salary from 2021', () => {
+  test('should calculate net salary from previous year', () => {
     salary = {
       salary: 80000,
       student: false,
@@ -130,19 +130,19 @@ describe('Calculate Salary', () => {
       hasCar: false,
       priceOfCar: 0,
     };
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(61520);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(61770);
 
     salary.salary = 180000;
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(132461.12);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(133821.52);
 
     salary.salary = 150000;
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(112661.12);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(113570);
 
     salary.hasCar = true;
     salary.priceOfCar = 850000;
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(110451.12);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(111360);
 
     salary.salary = 80000;
-    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(59310);
+    expect(SalaryCalculation.getNetSalary(salary, TaxYear.Previous)).toEqual(59560);
   });
 });

@@ -1,5 +1,5 @@
 {
-  "APP_NAME": "Czech Salary 2022",
+  "APP_NAME": "Czech Salary 2023",
   "ABOUT": "About",
   "HOME": "Home",
   "FREELANCER": "Calculate Freelancer's net income",
@@ -8,7 +8,7 @@
     "ENGLISH": "English",
     "CZECH": "Česky"
   },
-  "HEADER_1": "Calculation of net salary in Czech Republic - 2022",
+  "HEADER_1": "Calculation of net salary in Czech Republic - 2023",
   "ABOUT_PAGE": {
     "DESCRIPTION_ANIBAL": "As a foreign living in Czech Republic, when trying to search for information in English about how much would be my net income, I couldn't find any updated tool. So, I've decided to create this application according to the most recent tax law hoping to help everyone with the same problem.",
     "DESCRIPTION_DENISA": "I contributed to this application with my knowledge of the Czech Taxation. We believe this might be useful for expats or other foreigners who are usually not given enough information in this matter and they are hard to be found in English."
@@ -54,7 +54,7 @@
     "TOOLTIPS": {
       "HEALTH_INSURANCE_PAID_EMPLOYEE": "4,5% out of the gross salary",
       "SOCIAL_INSURANCE_PAID_EMPLOYEE": "6,5% out of the gross salary",
-      "PERSONAL_INCOME_TAX": "15% out of the gross salary and car benefit; 23% on income exceeding CZK 155 644",
+      "PERSONAL_INCOME_TAX": "15% out of the gross salary and car benefit; 23% on income exceeding CZK 161 296",
       "TAX_CREDITS": "(Assuming you signed the \"pink declaration\" (Prohlášení poplatníka daně z příjmů). This declaration you can sign only at one employer at the time. You basically declare that you are a Czech Income tax payer and that you signed it only with one employer (if you change your job you can sign with a new employer). This allows you to apply the tax credit of  CZK 2570 /month.",
       "TAX_BENEFITS": "Student, Children, Disability, ZTP",
       "TOTAL_COST_FOR_EMPLOYER": "This is how much you \"cost\" your employer per month",

@@ -3,13 +3,13 @@
     <div mat-card-avatar class="header-image"></div>
     <mat-card-title
       #tooltip="matTooltip"
-      [matTooltip]="'SALARY_DETAILS.SALARY_RAISE' | translate: { value: netSalary - netSalary2021 | number: '1.0-0' }"
+      [matTooltip]="'SALARY_DETAILS.SALARY_RAISE' | translate: { value: netSalary - prevNetSalary | number: '1.0-0' }"
       [matTooltipClass]="'tooltip'"
       (click)="tooltip.toggle()"
     >
       {{ 'SALARY_DETAILS.NET_SALARY_IS' | translate }}<b class="net-salary">{{ netSalary | number: '1.0-0' }} CZK</b>
       {{ 'SALARY_DETAILS.COMPARED_TO' | translate
-      }}<i class="previous-salary">{{ netSalary2021 | number: '1.0-0' }} CZK</i>
+      }}<i class="previous-salary">{{ prevNetSalary | number: '1.0-0' }} CZK</i>
       {{ 'SALARY_DETAILS.FROM_LAST_YEAR' | translate }}
     </mat-card-title>
   </mat-card-header>
