@@ -17,7 +17,7 @@ export class SalaryFormComponent implements OnInit {
   salaryForm: FormGroup;
   salary: SalaryModel;
   netSalary: number;
-  netSalary2021: number;
+  prevNetSalary: number;
   salaryDetails: SalaryDetailsModel[];
   salaryDetailsPaidByEmployer: SalaryDetailsModel[];
 
@@ -28,13 +28,13 @@ export class SalaryFormComponent implements OnInit {
   ngOnInit() {
     const savedFormSalary = JSON.parse(localStorage.getItem('salaryForm'));
     const savedNetSalary2022 = JSON.parse(localStorage.getItem('netSalary2022'));
-    const savedNetSalary2021 = JSON.parse(localStorage.getItem('netSalary2021'));
+    const savedNetSalary2023 = JSON.parse(localStorage.getItem('netSalary2023'));
     const savedSalaryDetails = JSON.parse(localStorage.getItem('salaryDetails'));
     const savedSalaryDetailsPaidByEmployer = JSON.parse(localStorage.getItem('salaryDetailsPaidByEmployer'));
 
-    if (savedNetSalary2022 && savedSalaryDetails) {
-      this.netSalary = savedNetSalary2022;
-      this.netSalary2021 = savedNetSalary2021;
+    if (savedNetSalary2023 && savedSalaryDetails) {
+      this.netSalary = savedNetSalary2023;
+      this.prevNetSalary = savedNetSalary2022;
       this.salaryDetails = savedSalaryDetails;
       this.salaryDetailsPaidByEmployer = savedSalaryDetailsPaidByEmployer;
     }
@@ -71,7 +71,7 @@ export class SalaryFormComponent implements OnInit {
       priceOfCar: this.form.hasCar.value ? this.form.priceOfCar.value : 0,
     };
     this.netSalary = SalaryCalculation.getNetSalary(this.salary, TaxYear.Current);
-    this.netSalary2021 = SalaryCalculation.getNetSalary(this.salary, TaxYear.Previous);
+    this.prevNetSalary = SalaryCalculation.getNetSalary(this.salary, TaxYear.Previous);
     this.salaryDetails = this.buildSalaryDetails(this.salary);
     this.salaryDetailsPaidByEmployer = this.buildSalaryDetailsPaidByEmployer(this.salary);
 
@@ -130,8 +130,8 @@ export class SalaryFormComponent implements OnInit {
 
   private saveDataInLocalStorage() {
     localStorage.setItem('salaryForm', JSON.stringify(this.salary));
-    localStorage.setItem('netSalary2022', JSON.stringify(this.netSalary));
-    localStorage.setItem('netSalary2021', JSON.stringify(this.netSalary2021));
+    localStorage.setItem('netSalary2023', JSON.stringify(this.netSalary));
+    localStorage.setItem('netSalary2022', JSON.stringify(this.prevNetSalary));
     localStorage.setItem('salaryDetails', JSON.stringify(this.salaryDetails));
     localStorage.setItem('salaryDetailsPaidByEmployer', JSON.stringify(this.salaryDetailsPaidByEmployer));
   }

@@ -3,7 +3,7 @@
 [![Github Status](https://github.com/anibalribeiro/czechsalary/workflows/main%20workflow/badge.svg)](https://github.com/anibalribeiro/czechsalary/actions?query=workflow%3A%22main+workflow%22)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/07b39230-54d0-484e-ae60-046b41800a88/deploy-status)](https://app.netlify.com/sites/friendly-darwin-63ac20/deploys)
 
-Calculation of net wages for employees in Czech Republic - 2022.
+Calculation of net wages for employees in Czech Republic - 2023.
 
 # Getting started
 

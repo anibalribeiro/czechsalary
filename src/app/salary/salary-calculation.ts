@@ -3,9 +3,9 @@ import { DisabilityTypeEnum } from '@app/salary/model/disabilityType.enum';
 import { TaxYear } from '@app/salary/model/taxYear.enum';
 
 export default class SalaryCalculation {
-  static AVERAGE_SALARY_TIMES_4_PREV = 141764;
-  static AVERAGE_SALARY_TIMES_4_CURR = 155644;
-  static TAX_CREDIT_PREV = 2320;
+  static AVERAGE_SALARY_TIMES_4_PREV = 155644;
+  static AVERAGE_SALARY_TIMES_4_CURR = 161296;
+  static TAX_CREDIT_PREV = 2570;
   static TAX_CREDIT_CURR = 2570;
 
   static HEALTH_INSURANCE = 0.045;
@@ -25,11 +25,11 @@ export default class SalaryCalculation {
   static THIRD_DEGREE = 420;
 
   static ONE_KID = 1267;
-  static TWO_KIDS_PREV = 2884;
+  static TWO_KIDS_PREV = 3127;
   static TWO_KIDS_CURR = 3127;
-  static THREE_KIDS_PREV = 4901;
+  static THREE_KIDS_PREV = 5447;
   static THREE_KIDS_CURR = 5447;
-  static FOUR_KIDS_PREV = 6918;
+  static FOUR_KIDS_PREV = 7767;
   static FOUR_KIDS_CURR = 7767;
 
   static getNetSalary(salaryModel: SalaryModel, taxYear: TaxYear): number {
